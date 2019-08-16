@@ -24,7 +24,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { NgxDhis2MenuModule } from '@iapps/ngx-dhis2-menu';
-import * as fromPages from './pages';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 // AoT requires an exported function for factories
@@ -33,7 +32,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, ...fromPages.pages],
+  declarations: [
+    AppComponent, 
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

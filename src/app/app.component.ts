@@ -19,7 +19,7 @@ export class AppComponent {
     this.translate.use('en');
 
     // Set application title
-    this.setTitle('Seed application');
+    this.setTitle('Interactive User App');
   }
 
   public setTitle(newTitle: string) {

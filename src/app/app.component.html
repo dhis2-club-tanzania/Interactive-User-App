@@ -1,6 +1,22 @@
 <div class="application-container">
   <ngx-dhis2-menu></ngx-dhis2-menu>
-  <div class="application-content">
+  
+</div>
+<div class="main row">
+  <div class="col-2">
+<ul class="nav flex-column">
+  <li class="nav-item">
+    <a class="nav-link" [routerLink] = "['/user']"><i class="fa fa-user"></i>  Users</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" ><i class="fa fa-address-book"></i>  User role</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" ><i class="fa fa-users"></i>  User group</a>
+  </li>
+</ul>
+</div>
+<div class="application-content col-9">
     <router-outlet></router-outlet>
   </div>
 </div>
