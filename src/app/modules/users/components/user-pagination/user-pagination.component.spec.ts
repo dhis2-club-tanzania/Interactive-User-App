@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {MatPaginatorModule} from '@angular/material'
 import { UserPaginationComponent } from './user-pagination.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('UserPaginationComponent', () => {
   let component: UserPaginationComponent;
@@ -8,7 +9,9 @@ describe('UserPaginationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserPaginationComponent ]
+      imports: [MatPaginatorModule, BrowserAnimationsModule],
+
+      declarations: [ UserPaginationComponent]
     })
     .compileComponents();
   }));

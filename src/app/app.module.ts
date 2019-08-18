@@ -26,6 +26,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NgxDhis2MenuModule } from '@iapps/ngx-dhis2-menu';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
+import { MatFormFieldModule } from '@angular/material';
+
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -74,7 +77,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
-    })
+    }),
+
+    MatFormFieldModule
   ],
   providers: [{ provide: RouterStateSerializer, useClass: RouteSerializer }],
   bootstrap: [AppComponent]
