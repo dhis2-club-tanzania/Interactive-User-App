@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DataSource} from '@angular/cdk/collections';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 export interface PeriodicElement {
   displayname: string;
@@ -10,11 +11,11 @@ export interface PeriodicElement {
   menu: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { displayname: 'Alain', username: 'traore', lastlogin: 'December 30, 2013', disabled: false, menu:'', },
-  { displayname: 'Alain', username: 'traore', lastlogin: 'December 30, 2013', disabled: false, menu:'', },
-  { displayname: 'Alain', username: 'traore', lastlogin: 'December 30, 2013', disabled: false, menu:'', },
-];
+// const ELEMENT_DATA: PeriodicElement[] = [
+//   { displayname: 'Alain', username: 'traore', lastlogin: 'December 30, 2013', disabled: false, menu:'', },
+//   { displayname: 'Alain', username: 'traore', lastlogin: 'December 30, 2013', disabled: false, menu:'', },
+//   { displayname: 'Alain', username: 'traore', lastlogin: 'December 30, 2013', disabled: false, menu:'', },
+// ];
 
 @Component({
   selector: 'app-user-table',
@@ -24,11 +25,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class UserTableComponent implements OnInit {
 
   displayedColumns: string[] = ['displayname', 'username', 'lastlogin', 'disabled', 'menu'];
-  dataSource = ELEMENT_DATA;
+  dataSource: any[]
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getData().subscribe(data => this.dataSource = data.users )
   }
   onCreateUser(e){
     e.stopPropagation();
