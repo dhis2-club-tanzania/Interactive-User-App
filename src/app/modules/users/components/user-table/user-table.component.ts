@@ -11,12 +11,6 @@ export interface PeriodicElement {
   menu: string;
 }
 
-// const ELEMENT_DATA: PeriodicElement[] = [
-//   { displayname: 'Alain', username: 'traore', lastlogin: 'December 30, 2013', disabled: false, menu:'', },
-//   { displayname: 'Alain', username: 'traore', lastlogin: 'December 30, 2013', disabled: false, menu:'', },
-//   { displayname: 'Alain', username: 'traore', lastlogin: 'December 30, 2013', disabled: false, menu:'', },
-// ];
-
 @Component({
   selector: 'app-user-table',
   templateUrl: './user-table.component.html',

@@ -14,9 +14,4 @@ export class UserService {
     const programUrl = 'users.json?fields=id,displayName,userCredentials[username,disabled,lastLogin]&paging=false'
     return this.http.get(programUrl)
   }
-
-  // getCurrentData(id: string): Observable<any>{
-  //   return this.http.get(`programs/${id}.json?fields=id,name,user[name]`)
-  // }
-
 }
