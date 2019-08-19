@@ -8,7 +8,8 @@ import { MatPaginatorModule } from '@angular/material';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatButtonModule, MatCheckboxModule, MatSelectModule, MatOptionModule } from '@angular/material';
-
+import { UserTableComponent } from './components/user-table/user-table.component';
+import { MatTableModule } from '@angular/material';
 
 
 @NgModule({
@@ -16,21 +17,22 @@ import { MatButtonModule, MatCheckboxModule, MatSelectModule, MatOptionModule } 
     UserComponent,
     UserPaginationComponent,
     UserFormComponent,
+    UserTableComponent
   ],
   imports: [
+    MatTableModule,
     CommonModule,
     MatPaginatorModule,
-    MatDatepickerModule, 
+    MatDatepickerModule,
     MatNativeDateModule,
     MatOptionModule,
     MatButtonModule, MatCheckboxModule, MatSelectModule,
     MatFormFieldModule,
-    MatInputModule, 
+    MatInputModule,
     RouterModule.forChild([
       { path: '', component: UserComponent }
     ])
   ]
 })
-export class UsersModule { 
-  
+export class UsersModule {
 }

@@ -25,7 +25,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { NgxDhis2MenuModule } from '@iapps/ngx-dhis2-menu';
 import { ServiceWorkerModule } from '@angular/service-worker';
-
+import { MatTableModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
 
 
@@ -36,10 +36,11 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
   ],
   imports: [
     BrowserModule,
+    MatTableModule,
     HttpClientModule,
     RoutingModule,
     CoreModule.forRoot({
