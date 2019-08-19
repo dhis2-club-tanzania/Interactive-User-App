@@ -28,8 +28,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { MatTableModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
 
-
-// AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -53,14 +51,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot(effects),
-    /**
-     * Menu  module
-     */
+    
     NgxDhis2MenuModule,
 
-    /**
-     * Translation module
-     */
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -69,9 +62,6 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
 
-    /**
-     * @ngrx/router-store keeps router state up-to-date in the store
-     */
     StoreRouterConnectingModule.forRoot(),
 
     !environment.production ? StoreDevtoolsModule.instrument() : [],

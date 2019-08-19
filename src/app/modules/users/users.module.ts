@@ -4,12 +4,15 @@ import { UserComponent } from 'src/app/modules/users/components/user/user.compon
 import { UserPaginationComponent } from 'src/app/modules/users/components/user-pagination/user-pagination.component';
 import { UserFormComponent } from 'src/app/modules/users/components/user-form/user-form.component';
 import { RouterModule } from '@angular/router';
-import { MatPaginatorModule } from '@angular/material';
+import { MatPaginatorModule, MatIconModule } from '@angular/material';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { MatButtonModule, MatCheckboxModule, MatSelectModule, MatOptionModule } from '@angular/material';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import { MatTableModule } from '@angular/material';
+import { MatMenuModule} from '@angular/material/menu';
+import { NewUserComponent } from './components/new-user/new-user.component';
+
 
 
 @NgModule({
@@ -17,20 +20,24 @@ import { MatTableModule } from '@angular/material';
     UserComponent,
     UserPaginationComponent,
     UserFormComponent,
-    UserTableComponent
+    UserTableComponent,
+    NewUserComponent
   ],
   imports: [
     MatTableModule,
     CommonModule,
     MatPaginatorModule,
     MatDatepickerModule,
+    MatMenuModule,
+    MatIconModule,
     MatNativeDateModule,
     MatOptionModule,
     MatButtonModule, MatCheckboxModule, MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
     RouterModule.forChild([
-      { path: '', component: UserComponent }
+      { path: '', component: UserComponent },
+      { path: 'create-user', component: NewUserComponent }
     ])
   ]
 })
