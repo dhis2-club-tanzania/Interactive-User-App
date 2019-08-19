@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserTableComponent } from './user-table.component';
-import { MatTableModule } from '@angular/material';
+import { MatTableModule, MatIconModule } from '@angular/material';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MatMenuModule } from '@angular/material';
 
 describe('UserTableComponent', () => {
   let component: UserTableComponent;
@@ -9,7 +11,7 @@ describe('UserTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MatTableModule],
+      imports: [MatTableModule, MatIconModule, MatMenuModule, RouterTestingModule],
       declarations: [ UserTableComponent ]
     })
     .compileComponents();

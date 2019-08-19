@@ -28,7 +28,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { MatTableModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
 
-
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

@@ -11,12 +11,15 @@ import {
       MatSelectModule,
       MatInputModule,
       MatTableModule,
-      MatPaginatorModule
+      MatPaginatorModule,
+      MatMenuModule,
+      MatIconModule
      } from '@angular/material';
 import { UserFormComponent } from '../user-form/user-form.component';
 import { UserPaginationComponent } from '../user-pagination/user-pagination.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserTableComponent } from '../user-table/user-table.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('UserComponent', () => {
   let component: UserComponent;
@@ -26,6 +29,8 @@ describe('UserComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         MatTableModule,
+        MatMenuModule,
+        MatIconModule,
         MatDatepickerModule,
         MatNativeDateModule,
         MatOptionModule,
@@ -37,6 +42,7 @@ describe('UserComponent', () => {
         MatFormFieldModule,
         MatInputModule,
         MatPaginatorModule,
+        RouterTestingModule,
         BrowserAnimationsModule
       ],
       declarations: [ UserComponent , UserFormComponent, UserPaginationComponent, UserTableComponent]
