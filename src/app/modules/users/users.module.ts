@@ -27,7 +27,6 @@ import { BasicUserInfoComponent } from "./components/basic-user-info/basic-user-
 import { UserRoleAssignmentComponent } from "./components/user-role-assignment/user-role-assignment.component";
 import { OrgUnitAssignmentComponent } from "./components/org-unit-assignment/org-unit-assignment.component";
 import { ReactiveFormsModule } from "@angular/forms";
-import { BrowserDynamicTestingModule } from "@angular/platform-browser-dynamic/testing";
 
 @NgModule({
   declarations: [
@@ -41,7 +40,6 @@ import { BrowserDynamicTestingModule } from "@angular/platform-browser-dynamic/t
     OrgUnitAssignmentComponent
   ],
   imports: [
-    BrowserDynamicTestingModule,
     MatTableModule,
     CommonModule,
     MatPaginatorModule,
