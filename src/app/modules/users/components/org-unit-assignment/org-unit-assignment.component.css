@@ -1,0 +1,17 @@
+h3 {
+  font-size: 20px;
+}
+.my-custom-scrollbar {
+  position: relative;
+  height: 200px;
+  overflow: auto;
+}
+.table-wrapper-scroll-y {
+  display: block;
+}
+button {
+  display: inline-block;
+}
+.bsave {
+  width: 80px;
+}
