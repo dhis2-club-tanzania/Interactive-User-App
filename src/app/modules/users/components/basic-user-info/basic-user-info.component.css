@@ -1,0 +1,9 @@
+form {
+  display: flex;
+}
+button {
+  display: inline-block;
+}
+.bsave {
+  width: 80px;
+}
