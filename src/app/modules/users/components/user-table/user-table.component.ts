@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DataSource} from '@angular/cdk/collections';
+import { DataSource} from '@angular/cdk/collections';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
@@ -19,16 +19,16 @@ export interface PeriodicElement {
 export class UserTableComponent implements OnInit {
 
   displayedColumns: string[] = ['displayname', 'username', 'lastlogin', 'disabled', 'menu'];
-  dataSource: any[]
+  dataSource: any[];
 
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getData().subscribe(data => this.dataSource = data.users )
+    this.userService.getData().subscribe(data => this.dataSource = data.users );
   }
-  onCreateUser(e){
+  onCreateUser(e) {
     e.stopPropagation();
-    this.router.navigate(['user/create-user'])
+    this.router.navigate(['user/create-user']);
   }
-  
+
 }

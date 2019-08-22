@@ -51,7 +51,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot(effects),
-    
     NgxDhis2MenuModule,
 
     TranslateModule.forRoot({
