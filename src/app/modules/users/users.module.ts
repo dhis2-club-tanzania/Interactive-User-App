@@ -27,6 +27,7 @@ import { BasicUserInfoComponent } from "./components/basic-user-info/basic-user-
 import { UserRoleAssignmentComponent } from "./components/user-role-assignment/user-role-assignment.component";
 import { OrgUnitAssignmentComponent } from "./components/org-unit-assignment/org-unit-assignment.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { EditUserComponent } from "./components/edit-user/edit-user.component";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     NewUserComponent,
     BasicUserInfoComponent,
     UserRoleAssignmentComponent,
-    OrgUnitAssignmentComponent
+    OrgUnitAssignmentComponent,
+    EditUserComponent
   ],
   imports: [
     MatTableModule,
@@ -66,7 +68,8 @@ import { ReactiveFormsModule } from "@angular/forms";
           { path: "user-roles", component: UserRoleAssignmentComponent },
           { path: "org-unit", component: OrgUnitAssignmentComponent }
         ]
-      }
+      },
+      { path: "edit-user", component: EditUserComponent }
     ])
   ]
 })
