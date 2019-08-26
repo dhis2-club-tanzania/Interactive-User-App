@@ -29,6 +29,7 @@ export class UserRoleAssignmentComponent implements OnInit {
       .getUserRoles()
       .subscribe(Roles => (this.roles = Roles.userRoles));
   }
+  onOrgUnitUpdate(e, action) {}
 }
 
 // SelectionFilterConfig =
