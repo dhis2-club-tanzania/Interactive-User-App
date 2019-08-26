@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <h3>Available dimension restrictions for data analytics</h3>
+      <h3>Available user groups</h3>
     </div>
     <div class="col-6">
-      <h3>Selected dimension restrictions for data analytics</h3>
+      <h3>Selected user groups</h3>
     </div>
   </div>
 </div>
@@ -23,23 +23,8 @@
       >
         <table class="table table-bordered table-striped mb-0">
           <tbody>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-            </tr>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
+            <tr *ngFor="let group of groups">
+              <td>{{ group.userGroups }}</td>
             </tr>
           </tbody>
         </table>

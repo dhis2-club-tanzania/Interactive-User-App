@@ -9,8 +9,24 @@ export class UserService {
   constructor(private http: NgxDhis2HttpClientService) {}
 
   getData(): Observable<any> {
-    const programUrl =
-      'users.json?fields=id,displayName,userCredentials[username,disabled,lastLogin]&paging=false';
-    return this.http.get(programUrl);
+    return this.http.get(
+      'users.json?fields=id,displayName,userCredentials[username,disabled,lastLogin]&paging=false'
+    );
   }
+
+  getUserRoles(): Observable<any> {
+    return this.http.get(
+      'userRoles.json?fields=id,displayName&canIssue=true&paging=false'
+    );
+  }
+
+  getUserGroups(): Observable<any> {
+    return this.http.get('userGroups.json?fields=id,name&paging=false');
+  }
+
+  // // getUserDimensions(): Observable<any> {
+  // //   return this.http.get(
+  // //     'userRoles.json?fields=id,displayName&canIssue=true&paging=false'
+  // //   );
+  // }
 }

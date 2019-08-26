@@ -1,7 +1,7 @@
-import { Component, OnInit } from "@angular/core";
-import { DataSource } from "@angular/cdk/collections";
-import { Router } from "@angular/router";
-import { UserService } from "../../services/user.service";
+import { Component, OnInit } from '@angular/core';
+import { DataSource } from '@angular/cdk/collections';
+import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 export interface PeriodicElement {
   displayname: string;
@@ -12,17 +12,17 @@ export interface PeriodicElement {
 }
 
 @Component({
-  selector: "app-user-table",
-  templateUrl: "./user-table.component.html",
-  styleUrls: ["./user-table.component.css"]
+  selector: 'app-user-table',
+  templateUrl: './user-table.component.html',
+  styleUrls: ['./user-table.component.css']
 })
 export class UserTableComponent implements OnInit {
   displayedColumns: string[] = [
-    "displayname",
-    "username",
-    "lastlogin",
-    "disabled",
-    "menu"
+    'displayname',
+    'username',
+    'lastlogin',
+    'disabled',
+    'menu'
   ];
   dataSource: any[];
 
@@ -35,11 +35,11 @@ export class UserTableComponent implements OnInit {
   }
   onCreateUser(e) {
     e.stopPropagation();
-    this.router.navigate(["user/create-user"]);
+    this.router.navigate(['user/create-user']);
   }
 
   onEditUser(e) {
     e.stopPropagation();
-    this.router.navigate(["user/edit-user"]);
+    this.router.navigate(['user/edit-user']);
   }
 }

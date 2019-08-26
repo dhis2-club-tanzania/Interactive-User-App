@@ -1,17 +1,24 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: "app-user-role-assignment",
-  templateUrl: "./user-role-assignment.component.html",
-  styleUrls: ["./user-role-assignment.component.css"]
+  selector: 'app-user-role-assignment',
+  templateUrl: './user-role-assignment.component.html',
+  styleUrls: ['./user-role-assignment.component.css']
 })
 export class UserRoleAssignmentComponent implements OnInit {
-  constructor(private fb: FormBuilder) {}
+  roles: any[] = [];
+
+  constructor(private fb: FormBuilder, private userservice: UserService) {}
   userRoleForm: FormGroup;
   userRoleAssignmentData: any = {
-    formControlName: ["search"]
+    formControlName: ['search']
   };
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userservice
+      .getUserRoles()
+      .subscribe(Roles => (this.roles = Roles.userRoles));
+  }
 }
