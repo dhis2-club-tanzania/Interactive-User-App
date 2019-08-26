@@ -1,137 +1,169 @@
 <form [formGroup]="basicUserForm" style="background-color: white;">
   <div class="col-6">
-    <mat-form-field class="form-group">
-      <input
-        matInput
-        placeholder="Usernames"
-        formControlName="userName"
-        required
-      />
-    </mat-form-field>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <mat-form-field>
-      <input
-        type="email"
-        matInput
-        placeholder="Email"
-        formControlName="email"
-        required
-      />
-    </mat-form-field>
+    <div class="row">
+      <mat-form-field class="form-group">
+        <input
+          matInput
+          placeholder="Usernames"
+          formControlName="userName"
+          required
+        />
+      </mat-form-field>
+    </div>
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+    <div class="row">
+      <mat-form-field>
+        <input
+          type="email"
+          matInput
+          placeholder="Email"
+          formControlName="email"
+          required
+        />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-checkbox formControlName="hideRequired">
+        External authentication only(OpenID or LDAP
+      </mat-checkbox>
+    </div>
+    <div class="row">
+      <mat-form-field>
+        <input
+          type="password"
+          matInput
+          placeholder="Password"
+          formControlName="password1"
+          required
+        />
+      </mat-form-field>
+    </div>
 
-    <mat-checkbox formControlName="hideRequired">
-      External authentication only(OpenID or LDAP
-    </mat-checkbox>
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+    <div class="row">
+      <mat-form-field>
+        <input
+          type="password"
+          matInput
+          placeholder="Retype password"
+          formControlName="password2"
+          required
+        />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Surname"
+          formControlName="surname"
+          required
+        />
+      </mat-form-field>
+    </div>
 
-    <mat-form-field>
-      <input
-        type="password"
-        matInput
-        placeholder="Password"
-        formControlName="password1"
-        required
-      />
-    </mat-form-field>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+    <div class="row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="First name"
+          formControlName="firstName"
+          required
+        />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field>
+        <input matInput placeholder="OpenID" formControlName="openId" />
+      </mat-form-field>
+    </div>
 
-    <mat-form-field>
-      <input
-        type="password"
-        matInput
-        placeholder="Retype password"
-        formControlName="password2"
-        required
-      />
-    </mat-form-field>
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="Surname"
-        formControlName="surname"
-        required
-      />
-    </mat-form-field>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="First name"
-        formControlName="firstName"
-        required
-      />
-    </mat-form-field>
+    <div class="row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="LDAP Identifier"
+          formControlName="ldapIdentifier"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="row">
+      <mat-form-field>
+        <input
+          type="number"
+          matInput
+          placeholder="Mobile phone number"
+          formControlName="phoneNumber"
+        />
+      </mat-form-field>
+    </div>
 
-    <mat-form-field>
-      <input matInput placeholder="OpenID" formControlName="openId" />
-    </mat-form-field>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="LDAP Identifier"
-        formControlName="ldapIdentifier"
-      />
-    </mat-form-field>
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+    <div class="row">
+      <mat-form-field>
+        <input matInput placeholder="WhatsApp" formControlName="whatsapp" />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Facebook Messenger"
+          formControlName="facebook"
+        />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field>
+        <input matInput placeholder="Skype" formControlName="skype" />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field>
+        <input matInput placeholder="Telegram" formControlName="telegram" />
+      </mat-form-field>
+    </div>
 
-    <mat-form-field>
-      <input
-        type="number"
-        matInput
-        placeholder="Mobile phone number"
-        formControlName="phoneNumber"
-      />
-    </mat-form-field>
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+    <div class="row">
+      <mat-form-field>
+        <input matInput placeholder="Twitter" formControlName="twitter" />
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field>
+        <mat-select
+          placeholder="Interface language"
+          formControlName="interfaceLanguage"
+        >
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-    <mat-form-field>
-      <input matInput placeholder="WhatsApp" formControlName="whatsapp" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <input
-        matInput
-        placeholder="Facebook Messenger"
-        formControlName="facebook"
-      />
-    </mat-form-field>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <mat-form-field>
-      <input matInput placeholder="Skype" formControlName="skype" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="Telegram" formControlName="telegram" />
-    </mat-form-field>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <mat-form-field>
-      <input matInput placeholder="Twitter" formControlName="twitter" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-select
-        placeholder="Interface language"
-        formControlName="interfaceLanguage"
-      >
-        <mat-option value="option">Option</mat-option>
-      </mat-select>
-    </mat-form-field>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <mat-form-field>
-      <mat-select
-        placeholder="Database language"
-        formControlName="databaseLanguage"
-      >
-        <mat-option value="option">Option</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+    <div class="row">
+      <mat-form-field>
+        <mat-select
+          placeholder="Database language"
+          formControlName="databaseLanguage"
+        >
+          <mat-option value="option">Option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
 </form>
 <br /><br />
 
 <div class="container">
   <button
+    style="background-color: blue"
     mat-button
     matStepperNext
     type="button"

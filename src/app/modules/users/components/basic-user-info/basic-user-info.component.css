@@ -6,4 +6,8 @@ button {
 }
 .bsave {
   width: 80px;
+  background-color: blue;
+}
+mat-form-field {
+  width: 90%;
 }

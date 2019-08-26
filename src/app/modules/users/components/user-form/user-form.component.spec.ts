@@ -1,29 +1,37 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatFormFieldModule, MatDatepickerModule, MatSelectModule, } from '@angular/material'
-import { UserFormComponent } from './user-form.component';
-import {  MatInputModule, MatNativeDateModule } from '@angular/material';
-import { MatButtonModule, MatCheckboxModule, MatOptionModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import {
+  MatFormFieldModule,
+  MatDatepickerModule,
+  MatSelectModule
+} from "@angular/material";
+import { UserFormComponent } from "./user-form.component";
+import { MatInputModule, MatNativeDateModule } from "@angular/material";
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatOptionModule
+} from "@angular/material";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-describe('UserFormComponent', () => {
+describe("UserFormComponent", () => {
   let component: UserFormComponent;
   let fixture: ComponentFixture<UserFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        MatDatepickerModule, 
+        MatDatepickerModule,
         MatNativeDateModule,
         MatOptionModule,
-        MatButtonModule, 
-        MatCheckboxModule, 
+        MatButtonModule,
+        MatCheckboxModule,
         BrowserAnimationsModule,
         MatSelectModule,
         MatFormFieldModule,
-        MatInputModule],
-      declarations: [ UserFormComponent ]
-    })
-    .compileComponents();
+        MatInputModule
+      ],
+      declarations: [UserFormComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -32,7 +40,7 @@ describe('UserFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
