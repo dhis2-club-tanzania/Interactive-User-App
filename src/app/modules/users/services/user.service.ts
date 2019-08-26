@@ -24,9 +24,7 @@ export class UserService {
     return this.http.get('userGroups.json?fields=id,name&paging=false');
   }
 
-  // // getUserDimensions(): Observable<any> {
-  // //   return this.http.get(
-  // //     'userRoles.json?fields=id,displayName&canIssue=true&paging=false'
-  // //   );
-  // }
+  getUserDimensions(): Observable<any> {
+    return this.http.get('constraints.json?fields=id,name&paging=false');
+  }
 }

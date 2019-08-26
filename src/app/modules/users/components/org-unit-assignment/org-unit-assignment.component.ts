@@ -8,6 +8,7 @@ import { UserService } from '../../services/user.service';
 })
 export class OrgUnitAssignmentComponent implements OnInit {
   groups: any[] = [];
+  dimensionss: any[] = [];
 
   constructor(private userservice: UserService) {}
 
@@ -15,5 +16,9 @@ export class OrgUnitAssignmentComponent implements OnInit {
     this.userservice
       .getUserGroups()
       .subscribe(Groups => (this.groups = Groups.userGroups));
+
+    this.userservice
+      .getUserDimensions()
+      .subscribe(Dimensionss => (this.dimensionss = Dimensionss.dimensions));
   }
 }

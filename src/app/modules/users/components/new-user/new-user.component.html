@@ -1,7 +1,7 @@
 <h3>Create New User</h3>
 
 <mat-horizontal-stepper [linear]="true" #stepper>
-  <mat-step [stepControl]="step1.formStep1">
+  <mat-step [stepControl]="step1">
     <ng-template matStepLabel>Basic User Information</ng-template>
     <app-basic-user-info #step1></app-basic-user-info>
   </mat-step>
