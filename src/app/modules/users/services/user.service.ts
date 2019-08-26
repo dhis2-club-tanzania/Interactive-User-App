@@ -6,6 +6,7 @@ import { Observable } from "rxjs";
   providedIn: "root"
 })
 export class UserService {
+  getUserGroups: any;
   constructor(private http: NgxDhis2HttpClientService) {}
 
   getData(): Observable<any> {

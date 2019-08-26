@@ -1,10 +1,10 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserRoleAssignmentComponent } from "./user-role-assignment.component";
-import { MatFormFieldModule } from "@angular/material";
-import { ReactiveFormsModule } from "@angular/forms";
+import { UserRoleAssignmentComponent } from './user-role-assignment.component';
+import { MatFormFieldModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
-describe("UserRoleAssignmentComponent", () => {
+describe('UserRoleAssignmentComponent', () => {
   let component: UserRoleAssignmentComponent;
   let fixture: ComponentFixture<UserRoleAssignmentComponent>;
 
