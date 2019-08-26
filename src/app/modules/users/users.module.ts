@@ -28,6 +28,7 @@ import { UserRoleAssignmentComponent } from "./components/user-role-assignment/u
 import { OrgUnitAssignmentComponent } from "./components/org-unit-assignment/org-unit-assignment.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { EditUserComponent } from "./components/edit-user/edit-user.component";
+import { NgxDhis2OrgUnitFilterModule } from "@iapps/ngx-dhis2-org-unit-filter";
 
 @NgModule({
   declarations: [
@@ -51,6 +52,8 @@ import { EditUserComponent } from "./components/edit-user/edit-user.component";
     MatStepperModule,
     MatIconModule,
     MatNativeDateModule,
+    NgxDhis2OrgUnitFilterModule,
+
     MatOptionModule,
     MatButtonModule,
     MatCheckboxModule,

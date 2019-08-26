@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { UserService } from "../../services/user.service";
 
 @Component({
   selector: "app-user-role-assignment",
@@ -7,11 +8,27 @@ import { FormBuilder, FormGroup } from "@angular/forms";
   styleUrls: ["./user-role-assignment.component.css"]
 })
 export class UserRoleAssignmentComponent implements OnInit {
-  constructor(private fb: FormBuilder) {}
+  roles: any[] = [];
+
+  selectionFilterConfig: any = {
+    orgUnitFilterConfig: {
+      showOrgUnitLevelGroupSection: false,
+      showUserOrgUnitSection: false
+    }
+  };
+
+  constructor(private fb: FormBuilder, private userservice: UserService) {}
+
   userRoleForm: FormGroup;
   userRoleAssignmentData: any = {
     formControlName: ["search"]
   };
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userservice
+      .getUserRoles()
+      .subscribe(Roles => (this.roles = Roles.userRoles));
+  }
 }
+
+// SelectionFilterConfig =

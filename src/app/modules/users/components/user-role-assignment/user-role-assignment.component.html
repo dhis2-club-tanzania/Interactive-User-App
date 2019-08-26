@@ -13,28 +13,13 @@
       >
         <table class="table table-bordered table-striped mb-0">
           <tbody>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-            </tr>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
+            <tr *ngFor="let role of roles">
+              <td>{{ role.displayName }}</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <button type="button" class="btn btn-warning">ASSIGN ALL 14</button>
+      <button type="button" class="btn btn-warning">ASSIGN ALL</button>
     </div>
 
     <div class="col-6">
@@ -92,63 +77,23 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <div
-        class="table-wrapper-scroll-y my-custom-scrollbar"
-        style="width: 100%"
+      <ngx-dhis2-org-unit-filter
+        [orgUnitFilterConfig]="selectionFilterConfig.orgUnitFilterConfig"
+        [selectedOrgUnitItems]="selectedOrgUnitItems"
+        (orgUnitUpdate)="onOrgUnitUpdate($event, 'UPDATE')"
+        (orgUnitClose)="onOrgUnitUpdate($event, 'CLOSE')"
       >
-        <table class="table table-bordered table-striped mb-0">
-          <tbody>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-            </tr>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      </ngx-dhis2-org-unit-filter>
     </div>
 
     <div class="col-6">
-      <div
-        class="table-wrapper-scroll-y my-custom-scrollbar"
-        style="width: 100%"
+      <ngx-dhis2-org-unit-filter
+        [orgUnitFilterConfig]="selectionFilterConfig.orgUnitFilterConfig"
+        [selectedOrgUnitItems]="selectedOrgUnitItems"
+        (orgUnitUpdate)="onOrgUnitUpdate($event, 'UPDATE')"
+        (orgUnitClose)="onOrgUnitUpdate($event, 'CLOSE')"
       >
-        <table class="table table-bordered table-striped mb-0">
-          <tbody>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-            </tr>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      </ngx-dhis2-org-unit-filter>
     </div>
   </div>
 </div>
