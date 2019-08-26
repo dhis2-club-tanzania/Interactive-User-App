@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
+import { Component, OnInit } from "@angular/core";
+import { UserService } from "../../services/user.service";
 
 @Component({
-  selector: 'app-org-unit-assignment',
-  templateUrl: './org-unit-assignment.component.html',
-  styleUrls: ['./org-unit-assignment.component.css']
+  selector: "app-org-unit-assignment",
+  templateUrl: "./org-unit-assignment.component.html",
+  styleUrls: ["./org-unit-assignment.component.css"]
 })
 export class OrgUnitAssignmentComponent implements OnInit {
   groups: any[] = [];
