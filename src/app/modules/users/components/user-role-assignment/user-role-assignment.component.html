@@ -1,104 +1,94 @@
 <h3 style="text-align: center">Selected Roles*</h3>
 <h3>Available roles</h3>
-<mat-form-field style="width: 98%">
-  <input matInput placeholder="Filter" formControlName="filter" />
-</mat-form-field>
 
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <div
-        class="table-wrapper-scroll-y my-custom-scrollbar"
-        style="width: 100%"
-      >
-        <table class="table table-bordered table-striped mb-0">
-          <tbody>
-            <tr *ngFor="let role of roles">
-              <td>{{ role.displayName }}</td>
-            </tr>
-          </tbody>
-        </table>
+<form [formGroup]="userRoleForm">
+  <mat-form-field style="width: 98%">
+    <input matInput placeholder="Filter" formControlName="filter" />
+  </mat-form-field>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div
+          class="table-wrapper-scroll-y my-custom-scrollbar"
+          style="width: 100%"
+        >
+          <table class="table table-bordered table-striped mb-0">
+            <tbody>
+              <tr *ngFor="let role of roles">
+                <td (click)="onSelectRole($event, role)">{{ role.name }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button type="button" class="btn btn-warning">ASSIGN ALL</button>
       </div>
-      <button type="button" class="btn btn-warning">ASSIGN ALL</button>
-    </div>
 
-    <div class="col-6">
-      <div
-        class="table-wrapper-scroll-y my-custom-scrollbar"
-        style="width: 100%"
-      >
-        <table class="table table-bordered table-striped mb-0">
-          <tbody>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-            </tr>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="col-6">
+        <div
+          class="table-wrapper-scroll-y my-custom-scrollbar"
+          style="width: 100%"
+        >
+          <table class="table table-bordered table-striped mb-0">
+            <tbody>
+              <tr *ngFor="let role of selectedRoles">
+                <td>
+                  {{ role.name }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button type="button" class="btn btn-warning">UNASSIGN</button>
       </div>
-      <button type="button" class="btn btn-warning">UNASSIGN</button>
     </div>
   </div>
-</div>
-<br />
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <h3>Data capture and maintainance organisation units</h3>
-      <mat-form-field class="form-group">
-        <input matInput placeholder="Search" formControlName="userName" />
-      </mat-form-field>
-    </div>
+  <br />
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h3>Data capture and maintainance organisation units</h3>
+        <mat-form-field class="form-group">
+          <input matInput placeholder="Search" formControlName="userName" />
+        </mat-form-field>
+      </div>
 
-    <div class="col-6">
-      <h3>Data capture and maintainance organisation</h3>
+      <div class="col-6">
+        <h3>Data output and analytic organisation units</h3>
 
-      <mat-form-field class="form-group">
-        <input matInput placeholder="Search" formControlName="userName" />
-      </mat-form-field>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <ngx-dhis2-org-unit-filter
-        [orgUnitFilterConfig]="selectionFilterConfig.orgUnitFilterConfig"
-        (orgUnitUpdate)="onOrgUnitUpdate($event, 'UPDATE')"
-        (orgUnitClose)="onOrgUnitUpdate($event, 'CLOSE')"
-      >
-      </ngx-dhis2-org-unit-filter>
-    </div>
-
-    <div class="col-6">
-      <ngx-dhis2-org-unit-filter
-        [orgUnitFilterConfig]="selectionFilterConfig.orgUnitFilterConfig"
-        (orgUnitUpdate)="onOrgUnitUpdate($event, 'UPDATE')"
-        (orgUnitClose)="onOrgUnitUpdate($event, 'CLOSE')"
-      >
-      </ngx-dhis2-org-unit-filter>
+        <mat-form-field class="form-group">
+          <input matInput placeholder="Search" formControlName="userName" />
+        </mat-form-field>
+      </div>
     </div>
   </div>
-</div>
-<p class="texth">
-  Selecting an organisation unit provides access to all units in the
-  sub-hierarchy
-</p>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <ngx-dhis2-org-unit-filter
+          [orgUnitFilterConfig]="selectionFilterConfig.orgUnitFilterConfig"
+          (orgUnitUpdate)="onOrgUnitUpdate($event, 'UPDATE')"
+          (orgUnitClose)="onOrgUnitUpdate($event, 'CLOSE')"
+        >
+        </ngx-dhis2-org-unit-filter>
+      </div>
+
+      <div class="col-6">
+        <ngx-dhis2-org-unit-filter
+          [orgUnitFilterConfig]="selectionFilterConfig.orgUnitFilterConfig"
+          (orgUnitUpdate)="onOrgUnitUpdate($event, 'UPDATE')"
+          (orgUnitClose)="onOrgUnitUpdate($event, 'CLOSE')"
+        >
+        </ngx-dhis2-org-unit-filter>
+      </div>
+    </div>
+  </div>
+  <p class="texth">
+    Selecting an organisation unit provides access to all units in the
+    sub-hierarchy
+  </p>
+</form>
 <br /><br />
 
 <div class="container">
@@ -109,3 +99,5 @@
     Next
   </button>
 </div>
+
+<!-- (click)="onRoleSelect(role.name)" -->

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../services/user.service";
+import { FormGroup, FormBuilder, FormControl } from "@angular/forms";
 
 @Component({
   selector: "app-org-unit-assignment",
@@ -8,9 +9,14 @@ import { UserService } from "../../services/user.service";
 })
 export class OrgUnitAssignmentComponent implements OnInit {
   groups: any[] = [];
-  dimensionss: any[] = [];
+  dimensions: any[] = [];
 
-  constructor(private userservice: UserService) {}
+  constructor(private fb: FormBuilder, private userservice: UserService) {}
+
+  orgUnitForm: FormGroup;
+  orgUnitAssignmentData: any = {
+    formControlName: "filter"
+  };
 
   ngOnInit() {
     this.userservice
@@ -19,6 +25,12 @@ export class OrgUnitAssignmentComponent implements OnInit {
 
     this.userservice
       .getUserDimensions()
-      .subscribe(Dimensionss => (this.dimensionss = Dimensionss.dimensions));
+      .subscribe(Dimensionss => (this.dimensions = Dimensionss.dimensions));
+
+    this.orgUnitForm = this.fb.group({});
+    this.orgUnitForm.addControl(
+      this.orgUnitAssignmentData.formControlName,
+      new FormControl("")
+    );
   }
 }

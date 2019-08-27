@@ -6,28 +6,26 @@ import { Observable } from "rxjs";
   providedIn: "root"
 })
 export class UserService {
-  getUserGroups: any;
   constructor(private http: NgxDhis2HttpClientService) {}
 
   getData(): Observable<any> {
-    const programUrl =
-      "users.json?fields=id,displayName,userCredentials[username,disabled,lastLogin]&paging=false";
-    return this.http.get(programUrl);
+    return this.http.get(
+      "users.json?fields=id,displayName,userCredentials[username,disabled,lastLogin]&paging=false"
+    );
   }
   getUserRoles(): Observable<any> {
     return this.http.get(
-      "userRoles.json?fields=id,displayNames&canIssue=true&paging=false"
+      "userRoles.json?fields=id,name&canIssue=true&paging=false"
     );
   }
-<<<<<<< HEAD
 
   getUserGroups(): Observable<any> {
-    return this.http.get('userGroups.json?fields=id,name&paging=false');
+    return this.http.get("userGroups.json?fields=id,name&paging=false");
   }
 
   getUserDimensions(): Observable<any> {
-    return this.http.get('constraints.json?fields=id,name&paging=false');
+    return this.http.get(
+      "dimensions/constraints.json?fields=id,name&paging=false"
+    );
   }
-=======
->>>>>>> 8790de8c8feab7b4dfa34fa14f2fb62882e8b0a9
 }

@@ -29,6 +29,7 @@ import { OrgUnitAssignmentComponent } from "./components/org-unit-assignment/org
 import { ReactiveFormsModule } from "@angular/forms";
 import { EditUserComponent } from "./components/edit-user/edit-user.component";
 import { NgxDhis2OrgUnitFilterModule } from "@iapps/ngx-dhis2-org-unit-filter";
+import { SelectFilterPipe } from './pipes/select-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NgxDhis2OrgUnitFilterModule } from "@iapps/ngx-dhis2-org-unit-filter";
     BasicUserInfoComponent,
     UserRoleAssignmentComponent,
     OrgUnitAssignmentComponent,
-    EditUserComponent
+    EditUserComponent,
+    SelectFilterPipe
   ],
   imports: [
     MatTableModule,

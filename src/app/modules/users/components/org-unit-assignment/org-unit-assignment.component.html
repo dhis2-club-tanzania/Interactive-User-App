@@ -8,128 +8,131 @@
     </div>
   </div>
 </div>
-<mat-form-field style="width: 98%">
-  <input matInput placeholder="Filter" formControlName="filter" />
-</mat-form-field>
 
-<br /><br />
+<form [formGroup]="orgUnitForm">
+  <mat-form-field style="width: 98%">
+    <input matInput placeholder="Filter" formControlName="filter" />
+  </mat-form-field>
 
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <div
-        class="table-wrapper-scroll-y my-custom-scrollbar"
-        style="width: 100%"
-      >
-        <table class="table table-bordered table-striped mb-0">
-          <tbody>
-            <tr *ngFor="let group of groups">
-              <td>{{ group.userGroups }}</td>
-            </tr>
-          </tbody>
-        </table>
+  <br /><br />
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div
+          class="table-wrapper-scroll-y my-custom-scrollbar"
+          style="width: 100%"
+        >
+          <table class="table table-bordered table-striped mb-0">
+            <tbody>
+              <tr *ngFor="let group of groups">
+                <td>{{ group.name }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button type="button" class="btn btn-warning">ASSIGN ALL</button>
       </div>
-      <button type="button" class="btn btn-warning">ASSIGN ALL</button>
-    </div>
 
-    <div class="col-6">
-      <div
-        class="table-wrapper-scroll-y my-custom-scrollbar"
-        style="width: 100%"
-      >
-        <table class="table table-bordered table-striped mb-0">
-          <tbody>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-            </tr>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="col-6">
+        <div
+          class="table-wrapper-scroll-y my-custom-scrollbar"
+          style="width: 100%"
+        >
+          <table class="table table-bordered table-striped mb-0">
+            <tbody>
+              <tr>
+                <td>Mark</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+              </tr>
+              <tr>
+                <td>Larry</td>
+              </tr>
+              <tr>
+                <td>Mark</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+              </tr>
+              <tr>
+                <td>Larry</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button type="button" class="btn btn-warning">UNASSIGN</button>
       </div>
-      <button type="button" class="btn btn-warning">UNASSIGN</button>
     </div>
   </div>
-</div>
 
-<br /><br />
+  <br /><br />
 
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <h3>Available dimension restrictions for data analytics</h3>
-    </div>
-    <div class="col-6">
-      <h3>Selected dimension restrictions for data analytics</h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h3>Available dimension restrictions for data analytics</h3>
+      </div>
+      <div class="col-6">
+        <h3>Selected dimension restrictions for data analytics</h3>
+      </div>
     </div>
   </div>
-</div>
-<mat-form-field style="width: 98%">
-  <input matInput placeholder="Filter" formControlName="filter" />
-</mat-form-field>
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <div
-        class="table-wrapper-scroll-y my-custom-scrollbar"
-        style="width: 100%"
-      >
-        <table class="table table-bordered table-striped mb-0">
-          <tbody>
-            <tr *ngFor="let dimension of dimensionss">
-              <td>{{ dimension.dimensions }}</td>
-            </tr>
-          </tbody>
-        </table>
+  <mat-form-field style="width: 98%">
+    <input matInput placeholder="Filter" formControlName="filter" />
+  </mat-form-field>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div
+          class="table-wrapper-scroll-y my-custom-scrollbar"
+          style="width: 100%"
+        >
+          <table class="table table-bordered table-striped mb-0">
+            <tbody>
+              <tr *ngFor="let dimension of dimensions">
+                <td>{{ dimension.name }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button type="button" class="btn btn-warning">ASSIGN ALL</button>
       </div>
-      <button type="button" class="btn btn-warning">ASSIGN ALL</button>
-    </div>
 
-    <div class="col-6">
-      <div
-        class="table-wrapper-scroll-y my-custom-scrollbar"
-        style="width: 100%"
-      >
-        <table class="table table-bordered table-striped mb-0">
-          <tbody>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-            </tr>
-            <tr>
-              <td>Mark</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-            </tr>
-            <tr>
-              <td>Larry</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="col-6">
+        <div
+          class="table-wrapper-scroll-y my-custom-scrollbar"
+          style="width: 100%"
+        >
+          <table class="table table-bordered table-striped mb-0">
+            <tbody>
+              <tr>
+                <td>Mark</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+              </tr>
+              <tr>
+                <td>Larry</td>
+              </tr>
+              <tr>
+                <td>Mark</td>
+              </tr>
+              <tr>
+                <td>Jacob</td>
+              </tr>
+              <tr>
+                <td>Larry</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button type="button" class="btn btn-warning">UNASSIGN</button>
       </div>
-      <button type="button" class="btn btn-warning">UNASSIGN</button>
     </div>
   </div>
-</div>
+</form>
 <br /><br />
 
 <div class="container">
