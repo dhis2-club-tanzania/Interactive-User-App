@@ -31,8 +31,8 @@
         >
           <table class="table table-bordered table-striped mb-0">
             <tbody>
-              <tr *ngFor="let role of selectedRoles">
-                <td>
+              <tr *ngFor="let role of roles | selectFilter">
+                <td (click)="onDeselectRole($event, role)">
                   {{ role.name }}
                 </td>
               </tr>
@@ -99,5 +99,3 @@
     Next
   </button>
 </div>
-
-<!-- (click)="onRoleSelect(role.name)" -->

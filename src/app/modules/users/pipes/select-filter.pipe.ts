@@ -6,7 +6,8 @@ import * as _ from "lodash";
 })
 export class SelectFilterPipe implements PipeTransform {
   transform(roles: any[]): any {
-    console.log(_.filter(roles, role => role.selected));
-    return roles;
+    const selectedRoles = _.filter(roles, role => role.selected === true);
+    console.log(selectedRoles);
+    return selectedRoles;
   }
 }

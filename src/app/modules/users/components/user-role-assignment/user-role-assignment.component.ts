@@ -45,8 +45,10 @@ export class UserRoleAssignmentComponent implements OnInit {
   onSelectRole(e, role: any) {
     e.stopPropagation();
     _.update(role, "selected", value => !value);
-    this.selectedRoles.push(_.pickBy(this.roles, role => role.selected));
-
-    console.log(this.selectedRoles);
+    console.log("All Roles");
+    // this.selectedRoles.push(_.remove(this.roles, role => role.selected));
+    // console.log(this.selectedRoles);
   }
+
+  onDeselectRole(e, role) {}
 }
