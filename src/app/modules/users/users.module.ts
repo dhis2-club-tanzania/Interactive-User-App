@@ -29,7 +29,8 @@ import { OrgUnitAssignmentComponent } from "./components/org-unit-assignment/org
 import { ReactiveFormsModule } from "@angular/forms";
 import { EditUserComponent } from "./components/edit-user/edit-user.component";
 import { NgxDhis2OrgUnitFilterModule } from "@iapps/ngx-dhis2-org-unit-filter";
-import { SelectFilterPipe } from './pipes/select-filter.pipe';
+// import { NgPipesModule } from 'ngx-pipes';
+import { SelectFilterPipe } from "./pipes/select-filter.pipe";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { SelectFilterPipe } from './pipes/select-filter.pipe';
     MatIconModule,
     MatNativeDateModule,
     NgxDhis2OrgUnitFilterModule,
-
+    // NgPipesModule,
     MatOptionModule,
     MatButtonModule,
     MatCheckboxModule,
