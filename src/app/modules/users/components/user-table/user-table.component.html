@@ -12,20 +12,27 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="displayname">
     <th mat-header-cell *matHeaderCellDef>Display Name</th>
-    <td mat-cell *matCellDef="let element">{{ element.displayName }}</td>
+    <td mat-cell *matCellDef="let element">
+      <a (click)="onEditUser($event)">{{ element.displayName }}</a>
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="username">
     <th mat-header-cell *matHeaderCellDef>Username</th>
     <td mat-cell *matCellDef="let element">
-      {{ element.userCredentials.username }}
+      <a (click)="onEditUser($event)">{{ element.userCredentials.username }}</a>
+      <!-- {{ element.userCredentials.username }} -->
     </td>
   </ng-container>
 
   <ng-container matColumnDef="lastlogin">
     <th mat-header-cell *matHeaderCellDef>Last Login</th>
     <td mat-cell *matCellDef="let element">
-      {{ element.userCredentials.lastLogin | date }}
+      <a (click)="onEditUser($event)">{{
+        element.userCredentials.lastLogin | date
+      }}</a>
+
+      <!-- {{ element.userCredentials.lastLogin | date }} -->
     </td>
   </ng-container>
 
