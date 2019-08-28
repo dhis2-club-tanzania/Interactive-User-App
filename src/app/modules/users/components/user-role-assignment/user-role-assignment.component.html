@@ -31,7 +31,7 @@
         >
           <table class="table table-bordered table-striped mb-0">
             <tbody>
-              <tr *ngFor="let role of selectedRoles">
+              <tr *ngFor="let role of roles | filterBy: ['selected']: true ">
                 <td>
                   {{ role.name }}
                 </td>

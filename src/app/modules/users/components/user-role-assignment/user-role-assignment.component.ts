@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
-import { UserService } from "../../services/user.service";
-import * as _ from "lodash";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { UserService } from '../../services/user.service';
+import * as _ from 'lodash';
 @Component({
-  selector: "app-user-role-assignment",
-  templateUrl: "./user-role-assignment.component.html",
-  styleUrls: ["./user-role-assignment.component.css"]
+  selector: 'app-user-role-assignment',
+  templateUrl: './user-role-assignment.component.html',
+  styleUrls: ['./user-role-assignment.component.css']
 })
 export class UserRoleAssignmentComponent implements OnInit {
   roles: any[] = [];
@@ -22,7 +22,7 @@ export class UserRoleAssignmentComponent implements OnInit {
 
   userRoleForm: FormGroup;
   userRoleAssignmentData: any = {
-    formControlName: "filter"
+    formControlName: 'filter'
   };
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class UserRoleAssignmentComponent implements OnInit {
     this.userRoleForm = this.fb.group({});
     this.userRoleForm.addControl(
       this.userRoleAssignmentData.formControlName,
-      new FormControl("")
+      new FormControl('')
     );
   }
 
@@ -44,9 +44,9 @@ export class UserRoleAssignmentComponent implements OnInit {
 
   onSelectRole(e, role: any) {
     e.stopPropagation();
-    _.update(role, "selected", value => !value);
-    this.selectedRoles.push(_.pickBy(this.roles, role => role.selected));
-
-    console.log(this.selectedRoles);
+    _.update(role, 'selected', value => !value);
+    console.log('All roles: ', this.roles);
+    // this.selectedRoles.push(_.pickBy(this.roles, role => role.selected));
+    // console.log(this.selectedRoles);
   }
 }
