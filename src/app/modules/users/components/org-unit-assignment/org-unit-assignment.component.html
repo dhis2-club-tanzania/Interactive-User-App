@@ -41,23 +41,8 @@
         >
           <table class="table table-bordered table-striped mb-0">
             <tbody>
-              <tr>
-                <td>Mark</td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-              </tr>
-              <tr>
-                <td>Larry</td>
-              </tr>
-              <tr>
-                <td>Mark</td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-              </tr>
-              <tr>
-                <td>Larry</td>
+              <tr *ngFor="let group of groups">
+                <td>{{ group.name }}</td>
               </tr>
             </tbody>
           </table>
@@ -107,23 +92,8 @@
         >
           <table class="table table-bordered table-striped mb-0">
             <tbody>
-              <tr>
-                <td>Mark</td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-              </tr>
-              <tr>
-                <td>Larry</td>
-              </tr>
-              <tr>
-                <td>Mark</td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-              </tr>
-              <tr>
-                <td>Larry</td>
+              <tr *ngFor="let dimension of dimensions">
+                <td>{{ dimension.name }}</td>
               </tr>
             </tbody>
           </table>

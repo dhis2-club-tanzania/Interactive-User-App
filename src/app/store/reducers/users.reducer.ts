@@ -1,12 +1,12 @@
-import { createReducer, on } from '@ngrx/store';
-import { initialUsersState, UsersState, adapter } from '../states/users.state';
+import { createReducer, on } from "@ngrx/store";
+import { initialUsersState, UsersState, adapter } from "../states/users.state";
 
 import {
   loadingBaseState,
   loadedBaseState,
   errorBaseState
-} from '../states/base.state';
-import { loadUsers, addUsers } from '../actions/users.actions';
+} from "../states/base.state";
+import { loadUsers, loadUsersSuccess } from "../actions/users.actions";
 
 export const reducer = createReducer(
   initialUsersState,
@@ -14,7 +14,7 @@ export const reducer = createReducer(
     ...state,
     ...loadingBaseState
   })),
-  on(addUsers, (state, { users }) =>
+  on(loadUsersSuccess, (state, { users }) =>
     adapter.addMany(users, { ...state, ...loadedBaseState })
   )
 );

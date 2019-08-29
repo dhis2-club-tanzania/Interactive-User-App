@@ -5,6 +5,8 @@ import { MatTableModule, MatIconModule } from "@angular/material";
 import { RouterTestingModule } from "@angular/router/testing";
 import { MatMenuModule } from "@angular/material";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { StoreModule } from "@ngrx/store";
+import { reducers, metaReducers } from "src/app/store/reducers";
 
 describe("UserTableComponent", () => {
   let component: UserTableComponent;
@@ -15,6 +17,7 @@ describe("UserTableComponent", () => {
       imports: [
         MatTableModule,
         MatIconModule,
+        StoreModule.forRoot(reducers, { metaReducers }),
         MatMenuModule,
         RouterTestingModule,
         HttpClientTestingModule
