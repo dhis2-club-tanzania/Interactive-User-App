@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import { State } from "src/app/store/reducers";
 import { getUserRoles } from "src/app/store/selectors/user-roles.selectors";
-import { updateUserRole } from "src/app/store/actions";
+import { updateUserRole, assignUserRole } from "src/app/store/actions";
 @Component({
   selector: "app-user-role-assignment",
   templateUrl: "./user-role-assignment.component.html",
@@ -53,6 +53,24 @@ export class UserRoleAssignmentComponent implements OnInit {
 
     this.store.dispatch(
       updateUserRole({ userRole: { id: updatedRole.id, changes: updatedRole } })
+    );
+  }
+
+  onAssignUserRoleList(e, selectAll: boolean) {
+    e.stopPropagation();
+    let assignedRole = [];
+    this.userRoles$.subscribe(userRole => (assignedRole = userRole));
+
+    let returnedRoles = assignedRole.map(role =>
+      Object.assign(
+        {},
+        { id: role.id, changes: { ...role, selected: selectAll } }
+      )
+    );
+    this.store.dispatch(
+      assignUserRole({
+        userRole: returnedRoles
+      })
     );
   }
 }

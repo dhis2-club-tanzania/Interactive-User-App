@@ -7,7 +7,8 @@ import {
   loadUserRoles,
   loadUserRolesSuccess,
   loadUserRolesFail,
-  updateUserRole
+  updateUserRole,
+  assignUserRole
 } from "../actions";
 import {
   loadingBaseState,
@@ -29,6 +30,10 @@ export const reducer = createReducer(
   })),
   on(updateUserRole, (state, { userRole }) =>
     adapter.updateOne(userRole, state)
+  ),
+
+  on(assignUserRole, (state, { userRole }) =>
+    adapter.updateMany(userRole, state)
   )
 );
 

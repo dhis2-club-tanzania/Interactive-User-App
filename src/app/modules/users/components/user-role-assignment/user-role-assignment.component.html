@@ -23,7 +23,13 @@
             </tbody>
           </table>
         </div>
-        <button type="button" class="btn btn-warning">ASSIGN ALL</button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="onAssignUserRoleList($event, true)"
+        >
+          ASSIGN ALL
+        </button>
       </div>
 
       <div class="col-6">
@@ -42,7 +48,13 @@
           </table>
         </div>
 
-        <button type="button" class="btn btn-warning">UNASSIGN</button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="onAssignUserRoleList($event, false)"
+        >
+          UNASSIGN
+        </button>
       </div>
     </div>
   </div>

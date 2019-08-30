@@ -12,6 +12,10 @@ export const loadUserRolesSuccess = createAction(
   props<{ userRoles: any[] }>()
 );
 export const updateUserRole = createAction(
-  "[USER ROLES] select User Roles",
+  "[USER ROLES] select User Role",
   props<{ userRole: Update<any> }>()
+);
+export const assignUserRole = createAction(
+  "[USER ROLES] select User Roles",
+  props<{ userRole: Update<any>[] }>()
 );
