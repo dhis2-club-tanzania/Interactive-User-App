@@ -3,6 +3,9 @@ import { Router } from "@angular/router";
 import { BasicUserInfoComponent } from "../basic-user-info/basic-user-info.component";
 import { UserRoleAssignmentComponent } from "../user-role-assignment/user-role-assignment.component";
 import { OrgUnitAssignmentComponent } from "../org-unit-assignment/org-unit-assignment.component";
+import { Store } from "@ngrx/store";
+import { State } from "src/app/store/reducers";
+import { loadUserRoles } from "src/app/store/actions";
 
 @Component({
   selector: "app-new-user",
@@ -16,9 +19,11 @@ export class NewUserComponent implements OnInit {
   userRoleAssignmentComponent: UserRoleAssignmentComponent;
   @ViewChild(OrgUnitAssignmentComponent, { static: false })
   orgUnitAssignment: OrgUnitAssignmentComponent;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private store: Store<State>) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.store.dispatch(loadUserRoles());
+  }
 
   onBasicInfo(e) {
     e.stopPropagation();

@@ -15,8 +15,10 @@
         >
           <table class="table table-bordered table-striped mb-0">
             <tbody>
-              <tr *ngFor="let role of roles">
-                <td (click)="onSelectRole($event, role)">{{ role.name }}</td>
+              <tr *ngFor="let role of userRoles$ | async | selectFilter: false">
+                <td (click)="onUpdateUserRoleList($event, role)">
+                  {{ role.name }}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -31,8 +33,8 @@
         >
           <table class="table table-bordered table-striped mb-0">
             <tbody>
-              <tr *ngFor="let role of roles | selectFilter">
-                <td (click)="onDeselectRole($event, role)">
+              <tr *ngFor="let role of userRoles$ | async | selectFilter: true">
+                <td (click)="onUpdateUserRoleList($event, role)">
                   {{ role.name }}
                 </td>
               </tr>

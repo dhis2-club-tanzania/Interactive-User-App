@@ -2,14 +2,18 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { UserService } from "../../services/user.service";
 import * as _ from "lodash";
+import { Observable } from "rxjs";
+import { Store } from "@ngrx/store";
+import { State } from "src/app/store/reducers";
+import { getUserRoles } from "src/app/store/selectors/user-roles.selectors";
+import { updateUserRole } from "src/app/store/actions";
 @Component({
   selector: "app-user-role-assignment",
   templateUrl: "./user-role-assignment.component.html",
   styleUrls: ["./user-role-assignment.component.css"]
 })
 export class UserRoleAssignmentComponent implements OnInit {
-  roles: any[] = [];
-  selectedRoles: any[];
+  userRoles$: Observable<any[]>;
 
   selectionFilterConfig: any = {
     orgUnitFilterConfig: {
@@ -18,7 +22,11 @@ export class UserRoleAssignmentComponent implements OnInit {
     }
   };
 
-  constructor(private fb: FormBuilder, private userservice: UserService) {}
+  constructor(
+    private fb: FormBuilder,
+    private userservice: UserService,
+    private store: Store<State>
+  ) {}
 
   userRoleForm: FormGroup;
   userRoleAssignmentData: any = {
@@ -26,13 +34,7 @@ export class UserRoleAssignmentComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.selectedRoles = [];
-    this.userservice.getUserRoles().subscribe(
-      Roles =>
-        (this.roles = _.map(Roles.userRoles, element => {
-          return _.assignIn({}, element, { selected: false });
-        }))
-    );
+    this.userRoles$ = this.store.select(getUserRoles);
     this.userRoleForm = this.fb.group({});
     this.userRoleForm.addControl(
       this.userRoleAssignmentData.formControlName,
@@ -42,13 +44,15 @@ export class UserRoleAssignmentComponent implements OnInit {
 
   onOrgUnitUpdate(e, UPDATE) {}
 
-  onSelectRole(e, role: any) {
+  onUpdateUserRoleList(e, role: any) {
     e.stopPropagation();
-    _.update(role, "selected", value => !value);
-    console.log("All Roles");
-    // this.selectedRoles.push(_.remove(this.roles, role => role.selected));
-    // console.log(this.selectedRoles);
-  }
+    const updatedRole = {
+      ...role,
+      selected: !role.selected
+    };
 
-  onDeselectRole(e, role) {}
+    this.store.dispatch(
+      updateUserRole({ userRole: { id: updatedRole.id, changes: updatedRole } })
+    );
+  }
 }

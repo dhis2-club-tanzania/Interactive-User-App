@@ -11,7 +11,7 @@ export const loadUserRolesSuccess = createAction(
   "[USER ROLES] Load user roles Success",
   props<{ userRoles: any[] }>()
 );
-export const selectUserRoles = createAction(
+export const updateUserRole = createAction(
   "[USER ROLES] select User Roles",
-  props<{ user: Update<any> }>()
+  props<{ userRole: Update<any> }>()
 );

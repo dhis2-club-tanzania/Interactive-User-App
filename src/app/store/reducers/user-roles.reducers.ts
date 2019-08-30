@@ -6,7 +6,8 @@ import {
 import {
   loadUserRoles,
   loadUserRolesSuccess,
-  loadUserRolesFail
+  loadUserRolesFail,
+  updateUserRole
 } from "../actions";
 import {
   loadingBaseState,
@@ -25,7 +26,10 @@ export const reducer = createReducer(
     ...state,
     ...errorBaseState,
     error
-  }))
+  })),
+  on(updateUserRole, (state, { userRole }) =>
+    adapter.updateOne(userRole, state)
+  )
 );
 
 export function userRolesReducer(state, action): UserRolesState {

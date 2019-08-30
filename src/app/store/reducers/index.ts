@@ -10,7 +10,7 @@ import { systemInfoReducer } from "./system-info.reducer";
 import { userReducer } from "./user.reducer";
 import { usersReducer } from "./users.reducer";
 import { UserRolesState } from "../states/user-roles.states";
-import { userRolesReducer } from "./user-roles.actions";
+import { userRolesReducer } from "./user-roles.reducers";
 
 export interface State {
   userDetails: UsersState;
