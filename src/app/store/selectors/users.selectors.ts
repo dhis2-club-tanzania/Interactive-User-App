@@ -1,9 +1,9 @@
-import { createSelector } from '@ngrx/store';
-import * as _ from 'lodash';
+import { createSelector } from "@ngrx/store";
+import * as _ from "lodash";
 
-import { getRootState, State } from '../reducers';
-import * as fromUsersState from '../states/users.state';
-import { User } from 'src/app/core/models/user.model';
+import { getRootState, State } from "../reducers";
+import * as fromUsersState from "../states/users.state";
+import { User } from "src/app/core/models/user.model";
 
 export const getUsersState = createSelector(
   getRootState,

@@ -1,6 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../services/user.service";
 import { FormGroup, FormBuilder, FormControl } from "@angular/forms";
+import * as _ from "lodash";
+import { Observable } from "rxjs";
+import { Store } from "@ngrx/store";
+import { State } from "src/app/store/reducers";
+import { getUserGroups } from "src/app/store/selectors/user-groups.selectors";
+import { updateUserGroup, assignUserGroup } from "src/app/store/actions";
+import { group } from "@angular/animations";
 
 @Component({
   selector: "app-org-unit-assignment",
@@ -8,10 +15,15 @@ import { FormGroup, FormBuilder, FormControl } from "@angular/forms";
   styleUrls: ["./org-unit-assignment.component.css"]
 })
 export class OrgUnitAssignmentComponent implements OnInit {
-  groups: any[] = [];
+  // groups: any[] = [];
+  userGroups$: Observable<any[]>;
   dimensions: any[] = [];
 
-  constructor(private fb: FormBuilder, private userservice: UserService) {}
+  constructor(
+    private fb: FormBuilder,
+    private userservice: UserService,
+    private store: Store<State>
+  ) {}
 
   orgUnitForm: FormGroup;
   orgUnitAssignmentData: any = {
@@ -19,9 +31,7 @@ export class OrgUnitAssignmentComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.userservice
-      .getUserGroups()
-      .subscribe(Groups => (this.groups = Groups.userGroups));
+    this.userGroups$ = this.store.select(getUserGroups);
 
     this.userservice
       .getUserDimensions()
@@ -31,6 +41,39 @@ export class OrgUnitAssignmentComponent implements OnInit {
     this.orgUnitForm.addControl(
       this.orgUnitAssignmentData.formControlName,
       new FormControl("")
+    );
+  }
+  onOrgUnitUpdate(e, UPDATE) {}
+
+  onUpdateUserGroupList(e, group: any) {
+    e.stopPropagation();
+    const updatedGroup = {
+      ...group,
+      selected: !group.selected
+    };
+
+    this.store.dispatch(
+      updateUserGroup({
+        userGroup: { id: updatedGroup.id, changes: updatedGroup }
+      })
+    );
+  }
+
+  onAssignUserGroupList(e, selectAll: boolean) {
+    e.stopPropagation();
+    let assignedGroup = [];
+    this.userGroups$.subscribe(userGroup => (assignedGroup = userGroup));
+
+    let returnedGroups = assignedGroup.map(group =>
+      Object.assign(
+        {},
+        { id: group.id, changes: { ...group, selected: selectAll } }
+      )
+    );
+    this.store.dispatch(
+      assignUserGroup({
+        userGroup: returnedGroups
+      })
     );
   }
 }

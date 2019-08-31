@@ -2,9 +2,9 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { UserService } from "../../modules/users/services/user.service";
 import {
-  loadUserRoles,
-  loadUserRolesSuccess,
-  loadUserRolesFail
+  loadUserGroups,
+  loadUserGroupsSuccess,
+  loadUserGroupsFail
 } from "../actions";
 import { switchMap, map, catchError } from "rxjs/operators";
 import { of } from "rxjs";
@@ -12,32 +12,25 @@ import { ErrorMessage } from "src/app/core";
 import * as _ from "lodash";
 
 @Injectable()
-export class UserRolesEffects {
+export class UserGroupsEffects {
   constructor(private actions$: Actions, private userService: UserService) {}
 
-  loadUserRoles$ = createEffect(() =>
+  loadUserGroups$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loadUserRoles),
+      ofType(loadUserGroups),
       switchMap(() =>
-        this.userService.getUserRoles().pipe(
-          map(userRoleData => {
-            const role = _.map(userRoleData.userRoles, element => {
+        this.userService.getUserGroups().pipe(
+          map(userGroupData => {
+            const group = _.map(userGroupData.userGroups, element => {
               return _.assignIn({}, element, { selected: false });
             });
-            return loadUserRolesSuccess({ userRoles: role });
+            return loadUserGroupsSuccess({ userGroups: group });
           }),
           catchError((err: ErrorMessage) =>
-            of(loadUserRolesFail({ error: err }))
+            of(loadUserGroupsFail({ error: err }))
           )
         )
       )
     )
   );
 }
-
-/**
- * 
- * _.map(Roles.userRoles, element => {
-          return _.assignIn({}, element, { selected: false });
-        })
- */

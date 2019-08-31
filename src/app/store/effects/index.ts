@@ -3,11 +3,13 @@ import { UsersEffects } from "./users.effects";
 import { SystemInfoEffects } from "./system-info.effects";
 import { RouterEffects } from "./router.effects";
 import { UserRolesEffects } from "./user-roles.effects";
+import { UserGroupsEffects } from "./user-groups.effects";
 
 export const effects: any[] = [
   UserEffects,
   UsersEffects,
   SystemInfoEffects,
   RouterEffects,
-  UserRolesEffects
+  UserRolesEffects,
+  UserGroupsEffects
 ];

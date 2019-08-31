@@ -25,13 +25,23 @@
         >
           <table class="table table-bordered table-striped mb-0">
             <tbody>
-              <tr *ngFor="let group of groups">
-                <td>{{ group.name }}</td>
+              <tr
+                *ngFor="let group of userGroups$ | async | selectFilter: false"
+              >
+                <td (click)="onUpdateUserGroupList($event, group)">
+                  {{ group.name }}
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <button type="button" class="btn btn-warning">ASSIGN ALL</button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="onAssignUserGroupList($event, true)"
+        >
+          ASSIGN ALL
+        </button>
       </div>
 
       <div class="col-6">
@@ -41,13 +51,22 @@
         >
           <table class="table table-bordered table-striped mb-0">
             <tbody>
-              <tr *ngFor="let group of groups">
+              <tr
+                *ngFor="let group of userGroups$ | async | selectFilter: true"
+                (click)="onUpdateUserGroupList($event, group)"
+              >
                 <td>{{ group.name }}</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <button type="button" class="btn btn-warning">UNASSIGN</button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="onAssignUserGroupList($event, false)"
+        >
+          UNASSIGN ALL
+        </button>
       </div>
     </div>
   </div>
