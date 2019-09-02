@@ -13,6 +13,8 @@ import { UserRolesState } from "../states/user-roles.states";
 import { userRolesReducer } from "./user-roles.reducers";
 import { UserGroupsState } from "../states/user-groups.states";
 import { userGroupsReducer } from "./user-groups.reducers";
+import { UserDimensionsState } from "../states/user-dimensions.states";
+import { userDimensionsReducer } from "./user-dimensions.reducers";
 
 export interface State {
   userDetails: UsersState;
@@ -21,6 +23,7 @@ export interface State {
   router: RouterReducerState;
   userRoles: UserRolesState;
   userGroups: UserGroupsState;
+  userDimensions: UserDimensionsState;
 }
 
 export const reducers: ActionReducerMap<State> = {
@@ -29,7 +32,8 @@ export const reducers: ActionReducerMap<State> = {
   systemInfo: systemInfoReducer,
   router: routerReducer,
   userRoles: userRolesReducer,
-  userGroups: userGroupsReducer
+  userGroups: userGroupsReducer,
+  userDimensions: userDimensionsReducer
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production

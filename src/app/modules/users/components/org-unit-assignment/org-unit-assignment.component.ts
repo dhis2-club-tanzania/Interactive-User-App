@@ -8,6 +8,11 @@ import { State } from "src/app/store/reducers";
 import { getUserGroups } from "src/app/store/selectors/user-groups.selectors";
 import { updateUserGroup, assignUserGroup } from "src/app/store/actions";
 import { group } from "@angular/animations";
+import { getUserDimensions } from "src/app/store/selectors/user-dimensions.selectors";
+import {
+  updateUserDimension,
+  assignUserDimension
+} from "src/app/store/actions";
 
 @Component({
   selector: "app-org-unit-assignment",
@@ -17,7 +22,8 @@ import { group } from "@angular/animations";
 export class OrgUnitAssignmentComponent implements OnInit {
   // groups: any[] = [];
   userGroups$: Observable<any[]>;
-  dimensions: any[] = [];
+  // dimensions: any[] = [];
+  userDimensions$: Observable<any[]>;
 
   constructor(
     private fb: FormBuilder,
@@ -32,10 +38,11 @@ export class OrgUnitAssignmentComponent implements OnInit {
 
   ngOnInit() {
     this.userGroups$ = this.store.select(getUserGroups);
+    this.userDimensions$ = this.store.select(getUserDimensions);
 
-    this.userservice
-      .getUserDimensions()
-      .subscribe(Dimensionss => (this.dimensions = Dimensionss.dimensions));
+    // this.userservice
+    //   .getUserDimensions()
+    //   .subscribe(Dimensionss => (this.dimensions = Dimensionss.dimensions));
 
     this.orgUnitForm = this.fb.group({});
     this.orgUnitForm.addControl(
@@ -73,6 +80,40 @@ export class OrgUnitAssignmentComponent implements OnInit {
     this.store.dispatch(
       assignUserGroup({
         userGroup: returnedGroups
+      })
+    );
+  }
+
+  onUpdateUserDimensionList(e, dimension: any) {
+    e.stopPropagation();
+    const updatedDimension = {
+      ...dimension,
+      selected: !dimension.selected
+    };
+
+    this.store.dispatch(
+      updateUserDimension({
+        userDimension: { id: updatedDimension.id, changes: updatedDimension }
+      })
+    );
+  }
+
+  onAssignUserDimensionList(e, selectAll: boolean) {
+    e.stopPropagation();
+    let assignedDimension = [];
+    this.userDimensions$.subscribe(
+      userDimension => (assignedDimension = userDimension)
+    );
+
+    let returnedDimensions = assignedDimension.map(dimension =>
+      Object.assign(
+        {},
+        { id: dimension.id, changes: { ...dimension, selected: selectAll } }
+      )
+    );
+    this.store.dispatch(
+      assignUserDimension({
+        userDimension: returnedDimensions
       })
     );
   }
