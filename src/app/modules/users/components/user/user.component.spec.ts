@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserComponent } from "./user.component";
+import { UserComponent } from './user.component';
 import {
   MatFormFieldModule,
   MatDatepickerModule,
@@ -14,17 +14,17 @@ import {
   MatPaginatorModule,
   MatMenuModule,
   MatIconModule
-} from "@angular/material";
-import { UserFormComponent } from "../user-form/user-form.component";
-import { UserPaginationComponent } from "../user-pagination/user-pagination.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { UserTableComponent } from "../user-table/user-table.component";
-import { RouterTestingModule } from "@angular/router/testing";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { StoreModule } from "@ngrx/store";
-import { reducers, metaReducers } from "src/app/store/reducers";
+} from '@angular/material';
+import { UserFormComponent } from '../user-form/user-form.component';
+import { UserPaginationComponent } from '../user-pagination/user-pagination.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserTableComponent } from '../user-table/user-table.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from 'src/app/store/reducers';
 
-describe("UserComponent", () => {
+describe('UserComponent', () => {
   let component: UserComponent;
   let fixture: ComponentFixture<UserComponent>;
 
@@ -65,7 +65,7 @@ describe("UserComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

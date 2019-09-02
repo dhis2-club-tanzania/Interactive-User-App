@@ -1,14 +1,14 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BasicUserInfoComponent } from "./basic-user-info.component";
+import { BasicUserInfoComponent } from './basic-user-info.component';
 import {
   MatFormFieldModule,
   MatCheckboxModule,
   MatOptionModule,
   MatSelectModule
-} from "@angular/material";
+} from '@angular/material';
 
-describe("BasicUserInfoComponent", () => {
+describe('BasicUserInfoComponent', () => {
   let component: BasicUserInfoComponent;
   let fixture: ComponentFixture<BasicUserInfoComponent>;
 
