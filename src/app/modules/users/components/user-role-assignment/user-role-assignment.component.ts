@@ -14,6 +14,7 @@ import { updateUserRole, assignUserRole } from "src/app/store/actions";
 })
 export class UserRoleAssignmentComponent implements OnInit {
   userRoles$: Observable<any[]>;
+  searchTerm: string;
 
   selectionFilterConfig: any = {
     orgUnitFilterConfig: {
@@ -72,5 +73,9 @@ export class UserRoleAssignmentComponent implements OnInit {
         userRole: returnedRoles
       })
     );
+  }
+
+  onSearch() {
+    this.searchTerm = this.userRoleForm.value.filter;
   }
 }

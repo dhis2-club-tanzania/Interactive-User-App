@@ -24,6 +24,7 @@ export class OrgUnitAssignmentComponent implements OnInit {
   userGroups$: Observable<any[]>;
   // dimensions: any[] = [];
   userDimensions$: Observable<any[]>;
+  searchTerm: string;
 
   constructor(
     private fb: FormBuilder,
@@ -116,5 +117,9 @@ export class OrgUnitAssignmentComponent implements OnInit {
         userDimension: returnedDimensions
       })
     );
+  }
+
+  onSearch() {
+    this.searchTerm = this.orgUnitForm.value.filter;
   }
 }

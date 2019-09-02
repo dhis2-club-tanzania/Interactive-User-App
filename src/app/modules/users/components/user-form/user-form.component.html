@@ -1,26 +1,46 @@
-  <mat-form-field appearance="legacy">
-    <input matInput (focus)="onFocus()"  (select)="onSelect()" placeholder="Search by name">
-  </mat-form-field>
+<mat-form-field appearance="legacy">
+  <input
+    matInput
+    (focus)="onFocus()"
+    (select)="onSelect()"
+    placeholder="Search by name"
+  />
+</mat-form-field>
 
-  <mat-form-field appearance="legacy">
-    <input matInput (focus)="onFocus()"  (select)="onSelect()" placeholder="Search by role">
-  </mat-form-field>
+<mat-form-field appearance="legacy">
+  <input
+    matInput
+    (focus)="onFocus()"
+    (select)="onSelect()"
+    placeholder="Search by role"
+  />
+</mat-form-field>
 
-  <mat-form-field appearance="legacy">
-    <input matInput (focus)="onFocus()"  (select)="onSelect()" placeholder="Search by group">
-  </mat-form-field>
+<mat-form-field appearance="legacy">
+  <input
+    matInput
+    (focus)="onFocus()"
+    (select)="onSelect()"
+    placeholder="Search by group"
+  />
+</mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Inactivity">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+<mat-form-field class="example-full-width">
+  <input
+    matInput
+    [matDatepickerFilter]="myFilter"
+    [matDatepicker]="picker"
+    placeholder="Inactivity"
+  />
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
 
 <mat-form-field class="orgu">
   <mat-label>Organisation Unit</mat-label>
   <mat-select>
     <mat-option>None</mat-option>
-    
+
     <mat-option></mat-option>
   </mat-select>
 </mat-form-field>
@@ -33,4 +53,3 @@
   </mat-select>
 </mat-form-field>
 <mat-checkbox>Self registrations</mat-checkbox>
-
