@@ -95,13 +95,25 @@
         >
           <table class="table table-bordered table-striped mb-0">
             <tbody>
-              <tr *ngFor="let dimension of dimensions">
-                <td>{{ dimension.name }}</td>
+              <tr
+                *ngFor="
+                  let dimension of userDimensions$ | async | selectFilter: false
+                "
+              >
+                <td (click)="onUpdateUserDimensionList($event, dimension)">
+                  {{ dimension.name }}
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <button type="button" class="btn btn-warning">ASSIGN ALL</button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="onAssignUserDimensionList($event, true)"
+        >
+          ASSIGN ALL
+        </button>
       </div>
 
       <div class="col-6">
@@ -111,13 +123,25 @@
         >
           <table class="table table-bordered table-striped mb-0">
             <tbody>
-              <tr *ngFor="let dimension of dimensions">
-                <td>{{ dimension.name }}</td>
+              <tr
+                *ngFor="
+                  let dimension of userDimensions$ | async | selectFilter: true
+                "
+              >
+                <td (click)="onUpdateUserDimensionList($event, dimension)">
+                  {{ dimension.name }}
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <button type="button" class="btn btn-warning">UNASSIGN</button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="onAssignUserDimensionList($event, false)"
+        >
+          UNASSIGN ALL
+        </button>
       </div>
     </div>
   </div>

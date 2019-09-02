@@ -5,7 +5,11 @@ import { UserRoleAssignmentComponent } from "../user-role-assignment/user-role-a
 import { OrgUnitAssignmentComponent } from "../org-unit-assignment/org-unit-assignment.component";
 import { Store } from "@ngrx/store";
 import { State } from "src/app/store/reducers";
-import { loadUserRoles, loadUserGroups } from "src/app/store/actions";
+import {
+  loadUserRoles,
+  loadUserGroups,
+  loadUserDimensions
+} from "src/app/store/actions";
 
 @Component({
   selector: "app-new-user",
@@ -24,6 +28,7 @@ export class NewUserComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(loadUserRoles());
     this.store.dispatch(loadUserGroups());
+    this.store.dispatch(loadUserDimensions());
   }
 
   onBasicInfo(e) {
