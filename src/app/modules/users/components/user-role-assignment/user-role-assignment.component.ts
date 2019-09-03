@@ -15,11 +15,14 @@ import { updateUserRole, assignUserRole } from "src/app/store/actions";
 export class UserRoleAssignmentComponent implements OnInit {
   userRoles$: Observable<any[]>;
   searchTerm: string;
+  OrgUnits: any;
+  DataView: any;
 
   selectionFilterConfig: any = {
     orgUnitFilterConfig: {
       showOrgUnitLevelGroupSection: false,
-      showUserOrgUnitSection: false
+      showUserOrgUnitSection: false,
+      singleSelection: false
     }
   };
 
@@ -43,7 +46,13 @@ export class UserRoleAssignmentComponent implements OnInit {
     );
   }
 
-  onOrgUnitUpdate(e, UPDATE) {}
+  onOrganisationUnits(e, UPDATE) {
+    this.OrgUnits = e.items;
+  }
+
+  onDataViewOrganisationUnits(e, UPDATE) {
+    this.DataView = e.items;
+  }
 
   onUpdateUserRoleList(e, role: any) {
     e.stopPropagation();

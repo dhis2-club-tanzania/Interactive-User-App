@@ -95,8 +95,8 @@
       <div class="col-6">
         <ngx-dhis2-org-unit-filter
           [orgUnitFilterConfig]="selectionFilterConfig.orgUnitFilterConfig"
-          (orgUnitUpdate)="onOrgUnitUpdate($event, 'UPDATE')"
-          (orgUnitClose)="onOrgUnitUpdate($event, 'CLOSE')"
+          (orgUnitUpdate)="onOrganisationUnits($event, 'UPDATE')"
+          (orgUnitClose)="onOrganisationUnits($event, 'CLOSE')"
         >
         </ngx-dhis2-org-unit-filter>
       </div>
@@ -104,8 +104,8 @@
       <div class="col-6">
         <ngx-dhis2-org-unit-filter
           [orgUnitFilterConfig]="selectionFilterConfig.orgUnitFilterConfig"
-          (orgUnitUpdate)="onOrgUnitUpdate($event, 'UPDATE')"
-          (orgUnitClose)="onOrgUnitUpdate($event, 'CLOSE')"
+          (orgUnitUpdate)="onDataViewOrganisationUnits($event, 'UPDATE')"
+          (orgUnitClose)="onDataViewOrganisationUnits($event, 'CLOSE')"
         >
         </ngx-dhis2-org-unit-filter>
       </div>
