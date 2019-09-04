@@ -4,7 +4,12 @@
 
 <form [formGroup]="userRoleForm">
   <mat-form-field style="width: 98%">
-    <input matInput placeholder="Filter" formControlName="filter" />
+    <input
+      matInput
+      placeholder="Filter"
+      formControlName="filter"
+      (keyup)="onSearch()"
+    />
   </mat-form-field>
 
   <div class="container">
@@ -16,7 +21,14 @@
         >
           <table class="table table-bordered table-striped mb-0">
             <tbody>
-              <tr *ngFor="let role of userRoles$ | async | selectFilter: false">
+              <tr
+                *ngFor="
+                  let role of userRoles$
+                    | async
+                    | selectFilter: false
+                    | filterByName: searchTerm
+                "
+              >
                 <td (click)="onUpdateUserRoleList($event, role)">
                   {{ role.name }}
                 </td>
@@ -84,8 +96,8 @@
       <div class="col-6">
         <ngx-dhis2-org-unit-filter
           [orgUnitFilterConfig]="selectionFilterConfig.orgUnitFilterConfig"
-          (orgUnitUpdate)="onOrgUnitUpdate($event, 'UPDATE')"
-          (orgUnitClose)="onOrgUnitUpdate($event, 'CLOSE')"
+          (orgUnitUpdate)="onOrganisationUnits($event, 'UPDATE')"
+          (orgUnitClose)="onOrganisationUnits($event, 'CLOSE')"
         >
         </ngx-dhis2-org-unit-filter>
       </div>
@@ -93,8 +105,8 @@
       <div class="col-6">
         <ngx-dhis2-org-unit-filter
           [orgUnitFilterConfig]="selectionFilterConfig.orgUnitFilterConfig"
-          (orgUnitUpdate)="onOrgUnitUpdate($event, 'UPDATE')"
-          (orgUnitClose)="onOrgUnitUpdate($event, 'CLOSE')"
+          (orgUnitUpdate)="onDataViewOrganisationUnits($event, 'UPDATE')"
+          (orgUnitClose)="onDataViewOrganisationUnits($event, 'CLOSE')"
         >
         </ngx-dhis2-org-unit-filter>
       </div>

@@ -22,9 +22,13 @@ export class UserRoleAssignmentComponent implements OnInit {
   selectionFilterConfig: any = {
     orgUnitFilterConfig: {
       showOrgUnitLevelGroupSection: false,
-      showUserOrgUnitSection: false
+      showUserOrgUnitSection: false,
+      singleSelection: false
     }
   };
+  searchTerm: any;
+  OrgUnits: any;
+  DataView: any;
 
   constructor(
     private fb: FormBuilder,
@@ -54,9 +58,17 @@ export class UserRoleAssignmentComponent implements OnInit {
     );
   }
 
-  onOrgUnitUpdate(e, UPDATE) {
-    // console.log(JSON.stringify(e));
+  onOrganisationUnits(e, UPDATE) {
+    this.OrgUnits = e.items;
   }
+
+  onDataViewOrganisationUnits(e, UPDATE) {
+    this.DataView = e.items;
+  }
+
+  // onOrgUnitUpdate(e, UPDATE) {
+  //   // console.log(JSON.stringify(e));
+  // }
 
   onUpdateUserRoleList(e, role: any) {
     e.stopPropagation();
@@ -89,5 +101,9 @@ export class UserRoleAssignmentComponent implements OnInit {
     );
 
     console.log(this.selectedUserRoles);
+  }
+
+  onSearch() {
+    this.searchTerm = this.userRoleForm.value.filter;
   }
 }
