@@ -107,32 +107,32 @@ export class BasicUserInfoComponent implements OnInit {
     ]
   };
 
-  // ngOnInit() {
-  //   this.basicUserForm = this.fb.group({});
-  //   this.basicUserInfoData.formControlNames.forEach(controlName => {
-  //     this.basicUserForm.addControl(controlName, new FormControl(''));
-  //   });
-  // }
-
   ngOnInit() {
-    this.basicUserForm = this.fb.group({
-      userName: [''],
-      email: [''],
-      hideRequired: [''],
-      password1: [''],
-      password2: [''],
-      surname: [''],
-      firstName: [''],
-      openId: [''],
-      ldapIdentifier: [''],
-      phoneNumber: [''],
-      whatsapp: [''],
-      facebook: [''],
-      skype: [''],
-      telegram: [''],
-      twiter: [''],
-      interfaceLanguage: [''],
-      databaseLanguage: ['']
+    this.basicUserForm = this.fb.group({});
+    this.basicUserInfoData.formControlNames.forEach(controlName => {
+      this.basicUserForm.addControl(controlName, new FormControl(''));
     });
   }
+
+  // ngOnInit() {
+  //   this.basicUserForm = this.fb.group({
+  //     userName: [''],
+  //     email: [''],
+  //     hideRequired: [''],
+  //     password1: [''],
+  //     password2: [''],
+  //     surname: [''],
+  //     firstName: [''],
+  //     openId: [''],
+  //     ldapIdentifier: [''],
+  //     phoneNumber: [''],
+  //     whatsapp: [''],
+  //     facebook: [''],
+  //     skype: [''],
+  //     telegram: [''],
+  //     twiter: [''],
+  //     interfaceLanguage: [''],
+  //     databaseLanguage: ['']
+  //   });
+  // }
 }

@@ -1,10 +1,10 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OrgUnitAssignmentComponent } from "./org-unit-assignment.component";
-import { MatFormFieldModule } from "@angular/material";
-import { ReactiveFormsModule } from "@angular/forms";
+import { OrgUnitAssignmentComponent } from './org-unit-assignment.component';
+import { MatFormFieldModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
-describe("OrgUnitAssignmentComponent", () => {
+describe('OrgUnitAssignmentComponent', () => {
   let component: OrgUnitAssignmentComponent;
   let fixture: ComponentFixture<OrgUnitAssignmentComponent>;
 

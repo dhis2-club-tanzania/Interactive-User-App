@@ -1,5 +1,5 @@
 <h3>Create New User</h3>
-
+<button (click)="openChild($event)">Load Child Data</button>
 <mat-horizontal-stepper [linear]="true" #stepper>
   <mat-step [stepControl]="step1">
     <ng-template matStepLabel>Basic User Information</ng-template>

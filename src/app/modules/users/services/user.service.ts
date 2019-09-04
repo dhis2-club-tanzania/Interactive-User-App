@@ -27,5 +27,8 @@ export class UserService {
     return this.http.get(
       'dimensions/constraints.json?fields=id,name&paging=false'
     );
+    // addNewUser(){
+    //   return this.http.post('', user);
+    // }
   }
 }
