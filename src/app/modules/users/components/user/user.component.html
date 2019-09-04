@@ -8,13 +8,15 @@
       <app-user-form></app-user-form>
     </div>
     <div class="col-md-6">
-      <app-user-pagination></app-user-pagination>
+      <app-user-pagination
+        (paginationUpdates)="onPaginationUpdate($event)"
+      ></app-user-pagination>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12">
-      <app-user-table></app-user-table>
+      <app-user-table [paginationDetails]="paginationDetails"></app-user-table>
     </div>
   </div>
 </div>

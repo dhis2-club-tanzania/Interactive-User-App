@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { DataSource } from "@angular/cdk/collections";
 import { Router } from "@angular/router";
 import { UserService } from "../../services/user.service";
@@ -22,6 +22,7 @@ export interface PeriodicElement {
   styleUrls: ["./user-table.component.css"]
 })
 export class UserTableComponent implements OnInit {
+  @Input() paginationDetails;
   users$: Observable<User[]>;
   displayedColumns: string[] = [
     "displayname",
