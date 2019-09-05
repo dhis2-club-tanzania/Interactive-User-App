@@ -1,8 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DataSource } from '@angular/cdk/collections';
 import { Router } from '@angular/router';
-import { MatTableDataSource } from '@angular/material/table';
+import { UserService } from '../../services/user.service';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/core';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/store/reducers';
+import { getUsers } from 'src/app/store/selectors/users.selectors';
 
 import { getSanitizedUsers } from 'src/app/core/helpers';
+import { MatTableDataSource } from '@angular/material';
 export interface UsersDetails {
   displayName: string;
   username: string;

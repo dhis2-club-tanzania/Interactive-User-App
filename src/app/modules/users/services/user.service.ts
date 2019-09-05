@@ -23,6 +23,10 @@ export class UserService {
     return this.http.get('userGroups.json?fields=id,name&paging=false');
   }
 
+  postNewUser(user: any) {
+    this.http.post('users', user);
+  }
+
   getUserDimensions(): Observable<any> {
     return this.http.get(
       'dimensions/constraints.json?fields=id,name&paging=false'
