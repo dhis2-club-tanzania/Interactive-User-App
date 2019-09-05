@@ -1,9 +1,9 @@
-import { createSelector } from "@ngrx/store";
-import * as _ from "lodash";
+import { createSelector } from '@ngrx/store';
+import * as _ from 'lodash';
 
-import { getRootState, State } from "../reducers";
-import * as fromUsersState from "../states/users.state";
-import { User } from "src/app/core/models/user.model";
+import { getRootState, State } from '../reducers';
+import * as fromUsersState from '../states/users.state';
+import { User } from 'src/app/core/models/user.model';
 
 export const getUsersState = createSelector(
   getRootState,
@@ -18,6 +18,10 @@ export const getUsers = createSelector(
 export const getUsersErrorState = createSelector(
   getUsersState,
   (state: fromUsersState.UsersState) => state.error
+);
+export const getUsersLoadingState = createSelector(
+  getUsersState,
+  (state: fromUsersState.UsersState) => state.loading
 );
 
 export const getUsersList = createSelector(

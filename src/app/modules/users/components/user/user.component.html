@@ -14,9 +14,18 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <app-user-table [paginationDetails]="paginationDetails"></app-user-table>
+  <ng-container *ngIf="usersLoading$ | async as usersLoading">
+    Loading Users ...
+  </ng-container>
+
+  <ng-container *ngIf="!(usersLoading$ | async) as usersLoading">
+    <div class="row" *ngIf="users$ | async as users">
+      <div class="col-md-12">
+        <app-user-table
+          [paginationDetails]="paginationDetails"
+          [users]="users"
+        ></app-user-table>
+      </div>
     </div>
-  </div>
+  </ng-container>
 </div>
