@@ -32,6 +32,7 @@ import { NgxDhis2OrgUnitFilterModule } from "@iapps/ngx-dhis2-org-unit-filter";
 // import { NgPipesModule } from 'ngx-pipes';
 import { SelectFilterPipe } from "./pipes/select-filter.pipe";
 import { FilterPipe } from "./pipes/user-role-filter.pipe";
+import { MatProgressSpinnerModule } from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { FilterPipe } from "./pipes/user-role-filter.pipe";
     CommonModule,
     MatPaginatorModule,
     MatDatepickerModule,
+    MatProgressSpinnerModule,
     MatGridListModule,
     MatMenuModule,
     MatStepperModule,

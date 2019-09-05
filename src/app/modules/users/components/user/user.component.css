@@ -1,7 +1,14 @@
 .row {
-    margin-top: 2px;
+  margin-top: 2px;
 }
 
-.mgt{
+.mgt {
   font-weight: unset;
+}
+mat-spinner {
+  position: fixed;
+  z-index: 1031;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

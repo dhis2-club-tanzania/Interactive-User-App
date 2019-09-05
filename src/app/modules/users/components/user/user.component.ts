@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/core';
-import { Store } from '@ngrx/store';
-import { State } from 'src/app/store/reducers';
+import { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs";
+import { User } from "src/app/core";
+import { Store } from "@ngrx/store";
+import { State } from "src/app/store/reducers";
 import {
   getUsers,
   getUsersLoadingState
-} from 'src/app/store/selectors/users.selectors';
+} from "src/app/store/selectors/users.selectors";
+import { MatProgressSpinnerModule } from "@angular/material";
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: "app-user",
+  templateUrl: "./user.component.html",
+  styleUrls: ["./user.component.css"]
 })
 export class UserComponent implements OnInit {
   paginationDetails: any;

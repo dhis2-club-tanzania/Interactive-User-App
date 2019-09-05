@@ -14,9 +14,12 @@
     </div>
   </div>
 
-  <ng-container *ngIf="usersLoading$ | async as usersLoading">
-    Loading Users ...
-  </ng-container>
+  <!-- <ng-container *ngIf="usersLoading$ | async as usersLoading"> -->
+  <!-- Loading Users ... -->
+  <mat-spinner [diameter]="50" *ngIf="usersLoading$ | async as usersLoading"
+    >Loading Users</mat-spinner
+  >
+  <!-- </ng-container> -->
 
   <ng-container *ngIf="!(usersLoading$ | async) as usersLoading">
     <div class="row" *ngIf="users$ | async as users">
