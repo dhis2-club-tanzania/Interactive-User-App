@@ -25,6 +25,15 @@ export class NewUserComponent implements OnInit {
   orgUnitAssignmentComponent: OrgUnitAssignmentComponent;
   constructor(private router: Router, private store: Store<State>) {}
 
+  // user = {
+  //   ...this.basicUserInfoComponent.basicUserForm.value,
+  //   userRoles: this.userRoleAssignmentComponent.selectedUserRoles,
+  //   organisationUnits: this.userRoleAssignmentComponent.OrgUnits,
+  //   dataViewOrganisationUnits: this.userRoleAssignmentComponent.DataView,
+  //   userGroups: this.orgUnitAssignmentComponent.selectedUserGroups
+  //   //  userDimensions: this.orgUnitAssignmentComponent.selectedUserDimensions
+  // };
+
   ngOnInit() {
     this.store.dispatch(loadUserRoles());
     this.store.dispatch(loadUserGroups());
@@ -36,20 +45,16 @@ export class NewUserComponent implements OnInit {
     this.router.navigate(['/user/create-user/basic-user-info']);
   }
 
-  openChild(e) {
-    e.stopPropagation();
+  onSaveUser(data) {
+    console.log(data);
     const user = {
       ...this.basicUserInfoComponent.basicUserForm.value,
       userRoles: this.userRoleAssignmentComponent.selectedUserRoles,
-      userGroups: this.orgUnitAssignmentComponent.selectedUserGroups,
-      userDimensions: this.orgUnitAssignmentComponent.selectedUserDimensions
+      organisationUnits: this.userRoleAssignmentComponent.OrgUnits,
+      dataViewOrganisationUnits: this.userRoleAssignmentComponent.DataView,
+      userGroups: this.orgUnitAssignmentComponent.selectedUserGroups
+      //  userDimensions: this.orgUnitAssignmentComponent.selectedUserDimensions
     };
-
     console.log(user);
   }
-  // get formStep1() {
-  //   return this.basicUserInfoComponent
-  //     ? tw
-  //     : null;
-  // }
 }

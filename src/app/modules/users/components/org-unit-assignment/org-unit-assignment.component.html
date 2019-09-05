@@ -2,15 +2,13 @@
   <div class="row">
     <div class="col-6">
       <h3>Available user groups</h3>
-      <!-- {{ selectedUserGroups$ | async | json }}
-      {{ selectedUserDimensions$ | async | json }} -->
     </div>
     <div class="col-6">
       <h3>Selected user groups</h3>
     </div>
   </div>
 </div>
-<form [formGroup]="orgUnitForm">
+<form [formGroup]="orgUnitForm" (ngSubmit)="onSubmit()">
   <mat-form-field style="width: 98%">
     <input
       matInput
@@ -164,14 +162,14 @@
       </div>
     </div>
   </div>
+
+  <div class="container">
+    <button mat-button matStepperPrevious type="button" class="bsave">
+      Back</button
+    >&nbsp;&nbsp;
+    <button mat-button type="submit" class="bsave">
+      Save
+    </button>
+  </div>
 </form>
 <br /><br />
-
-<div class="container">
-  <button mat-button matStepperPrevious type="button" class="bsave">
-    Back</button
-  >&nbsp;&nbsp;
-  <button mat-button type="button" class="bsave">
-    Save
-  </button>
-</div>

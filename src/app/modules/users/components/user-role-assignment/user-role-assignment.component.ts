@@ -66,10 +66,6 @@ export class UserRoleAssignmentComponent implements OnInit {
     this.DataView = e.items;
   }
 
-  // onOrgUnitUpdate(e, UPDATE) {
-  //   // console.log(JSON.stringify(e));
-  // }
-
   onUpdateUserRoleList(e, role: any) {
     e.stopPropagation();
     const updatedRole = {

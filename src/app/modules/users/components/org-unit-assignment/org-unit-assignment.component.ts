@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import * as _ from 'lodash';
@@ -24,19 +24,15 @@ import { getSelectedUserDimensions } from 'src/app/store/selectors/user-dimensio
   styleUrls: ['./org-unit-assignment.component.css']
 })
 export class OrgUnitAssignmentComponent implements OnInit {
-  // groups: any[] = [];
+  @Output() saveUser: EventEmitter<boolean> = new EventEmitter();
+
   userGroups$: Observable<any[]>;
   selectedUserGroups: any[];
-  // dimensions: any[] = [];
   userDimensions$: Observable<any[]>;
   selectedUserDimensions: any[];
   searchTerm: any;
 
-  constructor(
-    private fb: FormBuilder,
-    private userservice: UserService,
-    private store: Store<State>
-  ) {}
+  constructor(private fb: FormBuilder, private store: Store<State>) {}
 
   orgUnitForm: FormGroup;
   orgUnitAssignmentData: any = {
@@ -149,5 +145,12 @@ export class OrgUnitAssignmentComponent implements OnInit {
 
   onSearch() {
     this.searchTerm = this.orgUnitForm.value.filter;
+  }
+
+  onSubmit() {
+    this.saveUser.emit(
+      ...this.selectedUserDimensions,
+      ...this.selectedUserGroups
+    );
   }
 }

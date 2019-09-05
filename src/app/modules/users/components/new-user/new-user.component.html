@@ -1,5 +1,5 @@
 <h3>Create New User</h3>
-<button (click)="openChild($event)">Load Child Data</button>
+<!-- <button (click)="openChild($event)">Load Child Data</button> -->
 <mat-horizontal-stepper [linear]="true" #stepper>
   <mat-step [stepControl]="step1">
     <ng-template matStepLabel>Basic User Information</ng-template>
@@ -11,7 +11,10 @@
   </mat-step>
   <mat-step [stepControl]="step3">
     <ng-template matStepLabel>Organisation unit assignment</ng-template>
-    <app-org-unit-assignment #step3></app-org-unit-assignment>
+    <app-org-unit-assignment
+      (saveUser)="onSaveUser($event)"
+      #step3
+    ></app-org-unit-assignment>
   </mat-step>
 </mat-horizontal-stepper>
 
