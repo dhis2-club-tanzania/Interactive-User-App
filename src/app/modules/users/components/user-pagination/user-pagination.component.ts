@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  ViewChild
+} from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-user-pagination',
@@ -6,10 +13,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-pagination.component.css']
 })
 export class UserPaginationComponent implements OnInit {
+  // MatPaginator Output
+  pageSizeOptions = [5, 10, 25, 100];
 
-  constructor() { }
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+
+  @Output() paginationUpdates: EventEmitter<any> = new EventEmitter<any>();
+
+  constructor() {}
 
   ngOnInit() {
+    this.paginationUpdates.emit(this.paginator);
   }
-
 }
