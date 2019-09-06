@@ -85,7 +85,6 @@ export class OrgUnitAssignmentComponent implements OnInit {
         userGroup: { id: updatedGroup.id, changes: updatedGroup }
       })
     );
-    console.log(this.selectedUserGroups);
   }
 
   onAssignUserGroupList(e, selectAll: boolean) {
@@ -104,7 +103,6 @@ export class OrgUnitAssignmentComponent implements OnInit {
         userGroup: returnedGroups
       })
     );
-    console.log(this.selectedUserGroups);
   }
 
   onUpdateUserDimensionList(e, dimension: any) {
@@ -119,7 +117,6 @@ export class OrgUnitAssignmentComponent implements OnInit {
         userDimension: { id: updatedDimension.id, changes: updatedDimension }
       })
     );
-    console.log(this.selectedUserDimensions);
   }
 
   onAssignUserDimensionList(e, selectAll: boolean) {
@@ -140,7 +137,6 @@ export class OrgUnitAssignmentComponent implements OnInit {
         userDimension: returnedDimensions
       })
     );
-    console.log(this.selectedUserDimensions);
   }
 
   onSearch() {
@@ -148,9 +144,6 @@ export class OrgUnitAssignmentComponent implements OnInit {
   }
 
   onSubmit() {
-    this.saveUser.emit(
-      ...this.selectedUserDimensions,
-      ...this.selectedUserGroups
-    );
+    this.saveUser.emit();
   }
 }

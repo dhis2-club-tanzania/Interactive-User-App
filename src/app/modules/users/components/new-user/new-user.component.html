@@ -1,5 +1,4 @@
 <h3>Create New User</h3>
-<!-- <button (click)="openChild($event)">Load Child Data</button> -->
 <mat-horizontal-stepper [linear]="true" #stepper>
   <mat-step [stepControl]="step1">
     <ng-template matStepLabel>Basic User Information</ng-template>
@@ -12,10 +11,18 @@
   <mat-step [stepControl]="step3">
     <ng-template matStepLabel>Organisation unit assignment</ng-template>
     <app-org-unit-assignment
-      (saveUser)="onSaveUser($event)"
+      (saveUser)="onSaveUser()"
       #step3
     ></app-org-unit-assignment>
   </mat-step>
 </mat-horizontal-stepper>
 
 <router-outlet></router-outlet>
+
+<!-- // const user = { // ..._.omit(this.basicUserInfoComponent.basicUserForm.value,
+['password2']), // userRoles:
+this.userRoleAssignmentComponent.selectedUserRoles, // organisationUnits:
+this.userRoleAssignmentComponent.OrgUnits, // dataViewOrganisationUnits:
+this.userRoleAssignmentComponent.DataView, // userGroups:
+this.orgUnitAssignmentComponent.selectedUserGroups, // userDimensions:
+this.orgUnitAssignmentComponent.selectedUserDimensions // }; -->

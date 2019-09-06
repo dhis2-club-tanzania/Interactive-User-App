@@ -24,7 +24,7 @@ export class UserService {
   }
 
   postNewUser(user: any) {
-    this.http.post('users', user);
+    return this.http.post('users', user);
   }
 
   getUserDimensions(): Observable<any> {

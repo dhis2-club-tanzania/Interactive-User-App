@@ -90,7 +90,7 @@ export class BasicUserInfoComponent implements OnInit {
       'email',
       'hideRequired',
       'externalAuth',
-      'password1',
+      'password',
       'password2',
       'surname',
       'firstName',
@@ -113,26 +113,4 @@ export class BasicUserInfoComponent implements OnInit {
       this.basicUserForm.addControl(controlName, new FormControl(''));
     });
   }
-
-  // ngOnInit() {
-  //   this.basicUserForm = this.fb.group({
-  //     userName: [''],
-  //     email: [''],
-  //     hideRequired: [''],
-  //     password1: [''],
-  //     password2: [''],
-  //     surname: [''],
-  //     firstName: [''],
-  //     openId: [''],
-  //     ldapIdentifier: [''],
-  //     phoneNumber: [''],
-  //     whatsapp: [''],
-  //     facebook: [''],
-  //     skype: [''],
-  //     telegram: [''],
-  //     twiter: [''],
-  //     interfaceLanguage: [''],
-  //     databaseLanguage: ['']
-  //   });
-  // }
 }

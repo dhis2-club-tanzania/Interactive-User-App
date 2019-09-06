@@ -76,7 +76,6 @@ export class UserRoleAssignmentComponent implements OnInit {
     this.store.dispatch(
       updateUserRole({ userRole: { id: updatedRole.id, changes: updatedRole } })
     );
-    console.log(this.selectedUserRoles);
   }
 
   onAssignUserRoleList(e, selectAll: boolean) {
@@ -95,8 +94,6 @@ export class UserRoleAssignmentComponent implements OnInit {
         userRole: returnedRoles
       })
     );
-
-    console.log(this.selectedUserRoles);
   }
 
   onSearch() {
