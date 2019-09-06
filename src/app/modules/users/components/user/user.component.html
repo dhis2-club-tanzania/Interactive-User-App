@@ -5,7 +5,7 @@
 
   <div class="row">
     <div class="col-md-6">
-      <app-user-form></app-user-form>
+      <app-user-form (searchByName)="onSearchByName($event)"></app-user-form>
     </div>
     <div class="col-md-6">
       <app-user-pagination
@@ -19,7 +19,6 @@
   <mat-spinner [diameter]="50" *ngIf="usersLoading$ | async as usersLoading"
     >Loading Users</mat-spinner
   >
-  <!-- </ng-container> -->
 
   <ng-container *ngIf="!(usersLoading$ | async) as usersLoading">
     <div class="row" *ngIf="users$ | async as users">

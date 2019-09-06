@@ -33,6 +33,7 @@ import { NgxDhis2OrgUnitFilterModule } from "@iapps/ngx-dhis2-org-unit-filter";
 import { SelectFilterPipe } from "./pipes/select-filter.pipe";
 import { FilterPipe } from "./pipes/user-role-filter.pipe";
 import { MatProgressSpinnerModule } from "@angular/material";
+import { SearchByNamePipe } from './pipes/search-by-name.pipe';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MatProgressSpinnerModule } from "@angular/material";
     OrgUnitAssignmentComponent,
     EditUserComponent,
     SelectFilterPipe,
-    FilterPipe
+    FilterPipe,
+    SearchByNamePipe
   ],
   imports: [
     MatTableModule,
