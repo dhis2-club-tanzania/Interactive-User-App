@@ -23,21 +23,24 @@ export class UserComponent implements OnInit {
 
   paginationDetails: any;
   searchedName: string;
+  searchedDate: any;
   constructor(private store: Store<State>) {}
 
   ngOnInit() {
     this.searchedName = "";
+    this.searchedDate = "";
     this.users$ = this.store.select(getUsers);
     this.usersLoading$ = this.store.select(getUsersLoadingState);
   }
 
   onPaginationUpdate(paginationChanges) {
     this.paginationDetails = paginationChanges;
-    // console.log(paginationChanges);
   }
 
   onSearchByName(searchedName) {
-    // this.searchedName = searchedName;
-    this.userTable.onApplyFilter(searchedName);
+    this.userTable.onApplyFilterByName(searchedName);
+  }
+  onSearchByDate(searchedDate) {
+    this.userTable.onApplyFilterByName(searchedDate.toString());
   }
 }

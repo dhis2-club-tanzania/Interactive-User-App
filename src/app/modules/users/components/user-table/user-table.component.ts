@@ -44,7 +44,7 @@ export class UserTableComponent implements OnInit {
     this.dataSource.paginator = this.paginationDetails;
   }
 
-  onApplyFilter(searchedTerm: string) {
+  onApplyFilterByName(searchedTerm: any) {
     this.dataSource.filter = searchedTerm
       ? searchedTerm.toLocaleLowerCase()
       : "";
