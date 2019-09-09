@@ -1,12 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { MatFormFieldModule } from "@angular/material/form-field";
-
+import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import * as moment from "moment";
 @Component({
   selector: "app-user-form",
   templateUrl: "./user-form.component.html",
   styleUrls: ["./user-form.component.css"]
 })
 export class UserFormComponent implements OnInit {
+  @Output() searchByName: EventEmitter<string> = new EventEmitter();
+  @Output() searchByDate: EventEmitter<any> = new EventEmitter();
+
+  date: any;
   myFilter = (d: Date): boolean => {
     const day = d.getDay();
     // Prevent Saturday and Sunday from being selected.
@@ -17,11 +20,14 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit() {}
 
-  onFocus() {
-    console.log("OnFocus");
+  onSearchNameFocus(e) {
+    this.searchByName.emit(e.target.value);
   }
 
-  onSelect() {
-    console.log("OnSelect");
+  onSearchDateFocus(e) {
+    const date = moment(e.value).format("YYYY-MM-DD");
+    console.log(date);
+    this.searchByDate.emit(date);
   }
+  onFocus() {}
 }

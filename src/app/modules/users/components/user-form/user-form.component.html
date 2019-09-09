@@ -1,28 +1,17 @@
 <mat-form-field appearance="legacy">
   <input
     matInput
-    (focus)="onFocus()"
-    (select)="onSelect()"
+    (keyup)="onSearchNameFocus($event)"
     placeholder="Search by name"
   />
 </mat-form-field>
 
 <mat-form-field appearance="legacy">
-  <input
-    matInput
-    (focus)="onFocus()"
-    (select)="onSelect()"
-    placeholder="Search by role"
-  />
+  <input matInput (focus)="onFocus()" placeholder="Search by role" />
 </mat-form-field>
 
 <mat-form-field appearance="legacy">
-  <input
-    matInput
-    (focus)="onFocus()"
-    (select)="onSelect()"
-    placeholder="Search by group"
-  />
+  <input matInput (focus)="onFocus()" placeholder="Search by group" />
 </mat-form-field>
 
 <mat-form-field class="example-full-width">
@@ -31,6 +20,7 @@
     [matDatepickerFilter]="myFilter"
     [matDatepicker]="picker"
     placeholder="Inactivity"
+    (dateChange)="onSearchDateFocus($event)"
   />
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
