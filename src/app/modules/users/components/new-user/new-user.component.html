@@ -19,10 +19,17 @@
 
 <router-outlet></router-outlet>
 
-<!-- // const user = { // ..._.omit(this.basicUserInfoComponent.basicUserForm.value,
-['password2']), // userRoles:
-this.userRoleAssignmentComponent.selectedUserRoles, // organisationUnits:
-this.userRoleAssignmentComponent.OrgUnits, // dataViewOrganisationUnits:
-this.userRoleAssignmentComponent.DataView, // userGroups:
-this.orgUnitAssignmentComponent.selectedUserGroups, // userDimensions:
-this.orgUnitAssignmentComponent.selectedUserDimensions // }; -->
+<!-- onSaveUser() {
+  const user = {
+    ..._.omit(this.basicUserInfoComponent.basicUserForm.value, ['password2']),
+    userRoles: this.userRoleAssignmentComponent.selectedUserRoles,
+    organisationUnits: this.userRoleAssignmentComponent.OrgUnits,
+    dataViewOrganisationUnits: this.userRoleAssignmentComponent.DataView,
+    userGroups: this.orgUnitAssignmentComponent.selectedUserGroups,
+    userDimensions: this.orgUnitAssignmentComponent.selectedUserDimensions
+  };
+  console.log(user);
+  this.userservice
+    .postNewUser(user)
+    .subscribe(resp => console.log(resp), err => console.log(err));
+} -->

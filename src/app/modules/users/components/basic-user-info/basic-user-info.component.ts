@@ -86,9 +86,8 @@ export class BasicUserInfoComponent implements OnInit {
   basicUserForm: FormGroup;
   basicUserInfoData: any = {
     formControlNames: [
-      'userName',
+      'username',
       'email',
-      'hideRequired',
       'externalAuth',
       'password',
       'password2',
@@ -110,7 +109,7 @@ export class BasicUserInfoComponent implements OnInit {
   ngOnInit() {
     this.basicUserForm = this.fb.group({});
     this.basicUserInfoData.formControlNames.forEach(controlName => {
-      this.basicUserForm.addControl(controlName, new FormControl(''));
+      this.basicUserForm.addControl(controlName, new FormControl());
     });
   }
 }

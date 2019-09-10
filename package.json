@@ -30,6 +30,7 @@
     "@iapps/ngx-dhis2-http-client": "^2.0.2",
     "@iapps/ngx-dhis2-menu": "^1.0.9",
     "@iapps/ngx-dhis2-org-unit-filter": "^1.1.21-beta.1",
+    "@iapps/utils": "^1.0.1-alpha.2",
     "@ngrx/effects": "^8.0.1",
     "@ngrx/entity": "^8.0.1",
     "@ngrx/router-store": "^8.0.1",

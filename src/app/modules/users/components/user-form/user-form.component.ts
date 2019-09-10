@@ -1,9 +1,9 @@
-import { Component, OnInit, EventEmitter, Output } from "@angular/core";
-import * as moment from "moment";
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import * as moment from 'moment';
 @Component({
-  selector: "app-user-form",
-  templateUrl: "./user-form.component.html",
-  styleUrls: ["./user-form.component.css"]
+  selector: 'app-user-form',
+  templateUrl: './user-form.component.html',
+  styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
   @Output() searchByName: EventEmitter<string> = new EventEmitter();
@@ -25,7 +25,7 @@ export class UserFormComponent implements OnInit {
   }
 
   onSearchDateFocus(e) {
-    const date = moment(e.value).format("YYYY-MM-DD");
+    const date = moment(e.value).format('YYYY-MM-DD');
     console.log(date);
     this.searchByDate.emit(date);
   }
