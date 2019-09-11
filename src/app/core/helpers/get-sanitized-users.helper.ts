@@ -6,6 +6,7 @@ export function getSanitizedUsers(users: any) {
   }
 
   return _.map(users, user => ({
+    id: user ? user.id : '',
     displayName: user.displayName,
     username: user
       ? user.userCredentials

@@ -10,7 +10,8 @@ import { UUID } from '@iapps/utils';
 import {
   loadUserRoles,
   loadUserGroups,
-  loadUserDimensions
+  loadUserDimensions,
+  createUsers
 } from 'src/app/store/actions';
 import { UserService } from '../../services/user.service';
 
@@ -47,6 +48,10 @@ export class NewUserComponent implements OnInit {
     const id = UUID();
     const user = {
       id: id,
+      displayName:
+        this.basicUserInfoComponent.basicUserForm.value.surname +
+        ' ' +
+        this.basicUserInfoComponent.basicUserForm.value.firstName,
       userCredentials: {
         id: UUID(),
         userInfo: { id: id },
@@ -83,10 +88,6 @@ export class NewUserComponent implements OnInit {
 
       userDimensions: this.orgUnitAssignmentComponent.selectedUserDimensions
     };
-    // console.log(JSON.stringify(user));
-    console.log(user);
-    this.userservice
-      .postNewUser(user)
-      .subscribe(resp => console.log(resp), err => console.log(err));
+    this.store.dispatch(createUsers({ user: user }));
   }
 }

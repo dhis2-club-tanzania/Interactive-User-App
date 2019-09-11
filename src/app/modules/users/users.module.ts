@@ -81,7 +81,7 @@ import { SearchByNamePipe } from './pipes/search-by-name.pipe';
           { path: 'org-unit', component: OrgUnitAssignmentComponent }
         ]
       },
-      { path: 'edit-user', component: EditUserComponent }
+      { path: 'edit-user/:id', component: EditUserComponent }
     ])
   ]
 })
