@@ -14,6 +14,7 @@ import {
   createUsers
 } from 'src/app/store/actions';
 import { UserService } from '../../services/user.service';
+import { CDK_TABLE_TEMPLATE } from '@angular/cdk/table';
 
 @Component({
   selector: 'app-new-user',
@@ -89,5 +90,6 @@ export class NewUserComponent implements OnInit {
       userDimensions: this.orgUnitAssignmentComponent.selectedUserDimensions
     };
     this.store.dispatch(createUsers({ user: user }));
+    this.router.navigate(['/user']);
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, createEffect, ofType } from '@ngrx/effects';
 import { defer, of } from 'rxjs';
+import { MatSnackBar } from '@angular/material';
 
 import {
   loadUsers,
@@ -35,8 +36,16 @@ export class UsersEffects {
       ofType(createUsers),
       switchMap(action =>
         this.userService.postNewUser(action.user).pipe(
-          map(() => createUsersSuccess({ user: action.user })),
-          catchError(error => of(createUsersFail({ error: error })))
+          map(() => {
+            this._snackBar.open('User added successful ', '', {
+              duration: 3000
+            });
+            return createUsersSuccess({ user: action.user });
+          }),
+          catchError(error => {
+            this._snackBar.open('Fail to add user ', '', { duration: 3000 });
+            return of(createUsersFail({ error: error }));
+          })
         )
       )
     )
@@ -47,6 +56,7 @@ export class UsersEffects {
   constructor(
     private actions$: Actions,
     private userService: UserService,
-    private store: Store<State>
+    private store: Store<State>,
+    private _snackBar: MatSnackBar
   ) {}
 }

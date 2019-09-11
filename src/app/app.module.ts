@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
@@ -25,7 +26,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { NgxDhis2MenuModule } from '@iapps/ngx-dhis2-menu';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { MatTableModule } from '@angular/material';
+import { MatTableModule, MatSnackBar } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -33,10 +34,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
+    MatSnackBarModule,
     BrowserModule,
     MatTableModule,
     HttpClientModule,

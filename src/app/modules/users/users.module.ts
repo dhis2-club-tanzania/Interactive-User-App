@@ -4,6 +4,7 @@ import { UserComponent } from 'src/app/modules/users/components/user/user.compon
 import { UserPaginationComponent } from 'src/app/modules/users/components/user-pagination/user-pagination.component';
 import { UserFormComponent } from 'src/app/modules/users/components/user-form/user-form.component';
 import { RouterModule } from '@angular/router';
+// import { MatSnackBar } from '@angular/material';
 import {
   MatPaginatorModule,
   MatIconModule,
@@ -29,7 +30,6 @@ import { OrgUnitAssignmentComponent } from './components/org-unit-assignment/org
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { NgxDhis2OrgUnitFilterModule } from '@iapps/ngx-dhis2-org-unit-filter';
-// import { NgPipesModule } from 'ngx-pipes';
 import { SelectFilterPipe } from './pipes/select-filter.pipe';
 import { FilterPipe } from './pipes/user-role-filter.pipe';
 import { MatProgressSpinnerModule } from '@angular/material';
