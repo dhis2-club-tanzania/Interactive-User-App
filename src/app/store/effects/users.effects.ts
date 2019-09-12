@@ -43,7 +43,9 @@ export class UsersEffects {
             return createUsersSuccess({ user: action.user });
           }),
           catchError(error => {
-            this._snackBar.open('Fail to add user ', '', { duration: 3000 });
+            this._snackBar.open('Fail to new user ', '', {
+              duration: 3000
+            });
             return of(createUsersFail({ error: error }));
           })
         )
