@@ -1,5 +1,4 @@
 <h3 style="text-align: center">Selected Roles*</h3>
-<!-- {{ selectedUserRoles$ | async | json }} -->
 <h3>Available roles</h3>
 
 <form [formGroup]="userRoleForm" (ngSubmit)="onSubmit()">
@@ -154,52 +153,6 @@
       </div>
     </div>
   </div>
-  <br /><br />
-
-  <div class="container">
-    <div class="row">
-      <div class="col-6">
-        <h3>Data capture and maintainance organisation units</h3>
-        <mat-form-field class="form-group">
-          <input matInput placeholder="Search" formControlName="filter" />
-        </mat-form-field>
-      </div>
-
-      <div class="col-6">
-        <h3>Data output and analytic organisation units</h3>
-
-        <mat-form-field class="form-group">
-          <input matInput placeholder="Search" formControlName="filter" />
-        </mat-form-field>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-6">
-        <ngx-dhis2-org-unit-filter
-          [orgUnitFilterConfig]="selectionFilterConfig.orgUnitFilterConfig"
-          (orgUnitUpdate)="onOrganisationUnits($event, 'UPDATE')"
-          (orgUnitClose)="onOrganisationUnits($event, 'CLOSE')"
-        >
-        </ngx-dhis2-org-unit-filter>
-      </div>
-
-      <div class="col-6">
-        <ngx-dhis2-org-unit-filter
-          [orgUnitFilterConfig]="selectionFilterConfig.orgUnitFilterConfig"
-          (orgUnitUpdate)="onDataViewOrganisationUnits($event, 'UPDATE')"
-          (orgUnitClose)="onDataViewOrganisationUnits($event, 'CLOSE')"
-        >
-        </ngx-dhis2-org-unit-filter>
-      </div>
-    </div>
-  </div>
-  <p class="texth">
-    Selecting an organisation unit provides access to all units in the
-    sub-hierarchy
-  </p>
 </form>
 <br /><br />
 

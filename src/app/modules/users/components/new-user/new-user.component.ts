@@ -75,11 +75,11 @@ export class NewUserComponent implements OnInit {
       ]),
 
       organisationUnits: _.map(
-        this.userRoleAssignmentComponent.OrgUnits,
+        this.orgUnitAssignmentComponent.OrgUnits,
         orgUnit => _.pick(orgUnit, ["id"])
       ),
       dataViewOrganisationUnits: _.map(
-        this.userRoleAssignmentComponent.DataView,
+        this.orgUnitAssignmentComponent.DataView,
         dataView => _.pick(dataView, ["id"])
       ),
       userGroups: _.map(
