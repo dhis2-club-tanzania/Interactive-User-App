@@ -1,0 +1,21 @@
+<h4>
+  Select an Organisation Unit
+</h4>
+<div class="col-6" class="wid">
+  <ngx-dhis2-org-unit-filter
+    [orgUnitFilterConfig]="selectionFilterConfig.orgUnitFilterConfig"
+    [selectedOrgUnitItems]="selectedOrgUnitItems"
+    (orgUnitUpdate)="onOrgUnitDialogUpdate($event, 'UPDATE')"
+    (orgUnitClose)="onOrgUnitDialogClose($event, 'CLOSE')"
+  >
+  </ngx-dhis2-org-unit-filter>
+</div>
+<div mat-dialog-actions>
+  <button
+    mat-raised-button
+    [mat-dialog-close]="DialogData"
+    (click)="onOrgUnitDialogClose($event, 'CLOSE')"
+  >
+    Save
+  </button>
+</div>

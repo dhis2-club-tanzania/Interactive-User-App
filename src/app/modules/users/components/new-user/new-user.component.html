@@ -5,7 +5,7 @@
     <app-basic-user-info #step1></app-basic-user-info>
   </mat-step>
   <mat-step [stepControl]="step2">
-    <ng-template matStepLabel>User role assignment</ng-template>
+    <ng-template matStepLabel>User role and group assignment</ng-template>
     <app-user-role-assignment #step2></app-user-role-assignment>
   </mat-step>
   <mat-step [stepControl]="step3">
@@ -18,18 +18,3 @@
 </mat-horizontal-stepper>
 
 <router-outlet></router-outlet>
-
-<!-- onSaveUser() {
-  const user = {
-    ..._.omit(this.basicUserInfoComponent.basicUserForm.value, ['password2']),
-    userRoles: this.userRoleAssignmentComponent.selectedUserRoles,
-    organisationUnits: this.userRoleAssignmentComponent.OrgUnits,
-    dataViewOrganisationUnits: this.userRoleAssignmentComponent.DataView,
-    userGroups: this.orgUnitAssignmentComponent.selectedUserGroups,
-    userDimensions: this.orgUnitAssignmentComponent.selectedUserDimensions
-  };
-  console.log(user);
-  this.userservice
-    .postNewUser(user)
-    .subscribe(resp => console.log(resp), err => console.log(err));
-} -->

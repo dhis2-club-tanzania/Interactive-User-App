@@ -2,7 +2,7 @@
 <!-- {{ selectedUserRoles$ | async | json }} -->
 <h3>Available roles</h3>
 
-<form [formGroup]="userRoleForm">
+<form [formGroup]="userRoleForm" (ngSubmit)="onSubmit()">
   <mat-form-field style="width: 98%">
     <input
       matInput
@@ -72,6 +72,90 @@
     </div>
   </div>
   <br />
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h3>Available user groups</h3>
+      </div>
+      <div class="col-6">
+        <h3>Selected user groups</h3>
+      </div>
+    </div>
+  </div>
+
+  <mat-form-field style="width: 98%">
+    <input
+      matInput
+      placeholder="Filter"
+      formControlName="filter"
+      (keyup)="onSearch()"
+    />
+  </mat-form-field>
+
+  <br /><br />
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div
+          class="table-wrapper-scroll-y my-custom-scrollbar"
+          style="width: 100%"
+        >
+          <table class="table table-bordered table-striped mb-0">
+            <tbody>
+              <tr
+                *ngFor="
+                  let group of userGroups$
+                    | async
+                    | selectFilter: false
+                    | filterByName: searchTerm
+                "
+              >
+                <td (click)="onUpdateUserGroupList($event, group)">
+                  {{ group.name }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="onAssignUserGroupList($event, true)"
+        >
+          ASSIGN ALL
+        </button>
+      </div>
+
+      <div class="col-6">
+        <div
+          class="table-wrapper-scroll-y my-custom-scrollbar"
+          style="width: 100%"
+        >
+          <table class="table table-bordered table-striped mb-0">
+            <tbody>
+              <tr
+                *ngFor="let group of userGroups$ | async | selectFilter: true"
+                (click)="onUpdateUserGroupList($event, group)"
+              >
+                <td>{{ group.name }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button
+          type="button"
+          class="btn btn-warning"
+          (click)="onAssignUserGroupList($event, false)"
+        >
+          UNASSIGN ALL
+        </button>
+      </div>
+    </div>
+  </div>
+  <br /><br />
+
   <div class="container">
     <div class="row">
       <div class="col-6">
