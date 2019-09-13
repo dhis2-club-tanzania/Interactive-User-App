@@ -5,17 +5,11 @@ import * as _ from "lodash";
 import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import { State } from "src/app/store/reducers";
-
-import { updateUserGroup, assignUserGroup } from "src/app/store/actions";
-import { group } from "@angular/animations";
-
 import {
   updateUserDimension,
   assignUserDimension
 } from "src/app/store/actions";
-// import { getUserGroups } from 'src/app/store/selectors/user-groups.selectors';
 import { getUserDimensions } from "src/app/store/selectors/user-dimensions.selectors";
-// import { getSelectedUserGroups } from 'src/app/store/selectors/user-groups.selectors';
 import { getSelectedUserDimensions } from "src/app/store/selectors/user-dimensions.selectors";
 
 @Component({
@@ -26,11 +20,19 @@ import { getSelectedUserDimensions } from "src/app/store/selectors/user-dimensio
 export class OrgUnitAssignmentComponent implements OnInit {
   @Output() saveUser: EventEmitter<boolean> = new EventEmitter();
 
-  // userGroups$: Observable<any[]>;
-  // selectedUserGroups: any[];
   userDimensions$: Observable<any[]>;
   selectedUserDimensions: any[];
   searchTerm: any;
+
+  selectionFilterConfig: any = {
+    orgUnitFilterConfig: {
+      showOrgUnitLevelGroupSection: false,
+      showUserOrgUnitSection: false,
+      singleSelection: false
+    }
+  };
+  OrgUnits: any;
+  DataView: any;
 
   constructor(private fb: FormBuilder, private store: Store<State>) {}
 
@@ -40,15 +42,6 @@ export class OrgUnitAssignmentComponent implements OnInit {
   };
 
   ngOnInit() {
-    // this.userGroups$ = this.store.select(getUserGroups);
-    // this.store
-    //   .select(getSelectedUserGroups)
-    //   .subscribe(
-    //     selectedGroups =>
-    //       (this.selectedUserGroups = _.map(selectedGroups, userGroup =>
-    //         _.pick(userGroup, ['id', 'name'])
-    //       ))
-    //   );
     this.userDimensions$ = this.store.select(getUserDimensions);
     this.store
       .select(getSelectedUserDimensions)
@@ -60,10 +53,6 @@ export class OrgUnitAssignmentComponent implements OnInit {
           ))
       );
 
-    // this.userservice
-    //   .getUserDimensions()
-    //   .subscribe(Dimensionss => (this.dimensions = Dimensionss.dimensions));
-
     this.orgUnitForm = this.fb.group({});
     this.orgUnitForm.addControl(
       this.orgUnitAssignmentData.formControlName,
@@ -71,39 +60,6 @@ export class OrgUnitAssignmentComponent implements OnInit {
     );
   }
   onOrgUnitUpdate(e, UPDATE) {}
-
-  // tslint:disable-next-line: no-shadowed-variable
-  // onUpdateUserGroupList(e, group: any) {
-  //   e.stopPropagation();
-  //   const updatedGroup = {
-  //     ...group,
-  //     selected: !group.selected
-  //   };
-
-  //   this.store.dispatch(
-  //     updateUserGroup({
-  //       userGroup: { id: updatedGroup.id, changes: updatedGroup }
-  //     })
-  //   );
-  // }
-
-  // onAssignUserGroupList(e, selectAll: boolean) {
-  //   e.stopPropagation();
-  //   let assignedGroup = [];
-  //   this.userGroups$.subscribe(userGroup => (assignedGroup = userGroup));
-
-  //   let returnedGroups = assignedGroup.map(group =>
-  //     Object.assign(
-  //       {},
-  //       { id: group.id, changes: { ...group, selected: selectAll } }
-  //     )
-  //   );
-  //   this.store.dispatch(
-  //     assignUserGroup({
-  //       userGroup: returnedGroups
-  //     })
-  //   );
-  // }
 
   onUpdateUserDimensionList(e, dimension: any) {
     e.stopPropagation();
@@ -137,6 +93,14 @@ export class OrgUnitAssignmentComponent implements OnInit {
         userDimension: returnedDimensions
       })
     );
+  }
+
+  onOrganisationUnits(e, UPDATE) {
+    this.OrgUnits = e.items;
+  }
+
+  onDataViewOrganisationUnits(e, UPDATE) {
+    this.DataView = e.items;
   }
 
   onSearch() {

@@ -31,13 +31,6 @@ export class UserRoleAssignmentComponent implements OnInit {
   userGroups$: Observable<any[]>;
   selectedUserGroups: any[];
 
-  selectionFilterConfig: any = {
-    orgUnitFilterConfig: {
-      showOrgUnitLevelGroupSection: false,
-      showUserOrgUnitSection: false,
-      singleSelection: false
-    }
-  };
   searchTerm: any;
   OrgUnits: any;
   DataView: any;
@@ -79,8 +72,6 @@ export class UserRoleAssignmentComponent implements OnInit {
     );
   }
 
-  onOrgUnitUpdate(e, UPDATE) {}
-
   onUpdateUserGroupList(e, group: any) {
     e.stopPropagation();
     const updatedGroup = {
@@ -111,14 +102,6 @@ export class UserRoleAssignmentComponent implements OnInit {
         userGroup: returnedGroups
       })
     );
-  }
-
-  onOrganisationUnits(e, UPDATE) {
-    this.OrgUnits = e.items;
-  }
-
-  onDataViewOrganisationUnits(e, UPDATE) {
-    this.DataView = e.items;
   }
 
   onUpdateUserRoleList(e, role: any) {

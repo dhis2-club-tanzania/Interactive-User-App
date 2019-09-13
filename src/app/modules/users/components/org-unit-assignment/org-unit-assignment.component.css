@@ -9,10 +9,14 @@ h3 {
 .table-wrapper-scroll-y {
   display: block;
 }
+.texth {
+  font-style: italic;
+}
 button {
   display: inline-block;
 }
 .bsave {
   width: 80px;
   background-color: blue;
+  color: white;
 }
