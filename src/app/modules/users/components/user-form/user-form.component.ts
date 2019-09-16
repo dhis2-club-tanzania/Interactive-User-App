@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
 import * as moment from "moment";
 import { OrgUnitDialogComponent } from "../org-unit-dialog/org-unit-dialog.component";
 @Component({
@@ -7,8 +7,14 @@ import { OrgUnitDialogComponent } from "../org-unit-dialog/org-unit-dialog.compo
   styleUrls: ["./user-form.component.css"]
 })
 export class UserFormComponent implements OnInit {
-  @Output() searchByName: EventEmitter<string> = new EventEmitter();
-  @Output() searchByRole: EventEmitter<any> = new EventEmitter();
+  @Output() searchByName: EventEmitter<{
+    value: string;
+    control: string;
+  }> = new EventEmitter();
+  @Output() searchByRole: EventEmitter<{
+    value: string;
+    control: string;
+  }> = new EventEmitter();
   @Output() searchByGroup: EventEmitter<string> = new EventEmitter();
   @Output() searchByDate: EventEmitter<any> = new EventEmitter();
 
@@ -20,17 +26,18 @@ export class UserFormComponent implements OnInit {
     return day !== 0 && day !== 6;
   };
   dialog: any;
+  userService: any;
 
   constructor() {}
 
   ngOnInit() {}
 
-  onSearchNameFocus(e) {
-    this.searchByName.emit(e.target.value);
+  onSearchNameFocus(e, prop) {
+    this.searchByName.emit({ value: e.target.value, control: prop });
   }
 
-  onSearchRoleFocus(e) {
-    this.searchByRole.emit(e.target.value);
+  onSearchRoleFocus(e, prop) {
+    this.searchByRole.emit({ value: e.target.value, control: prop });
   }
 
   onSearchGroupFocus(e) {
@@ -39,9 +46,9 @@ export class UserFormComponent implements OnInit {
 
   onSearchDateFocus(e) {
     const date = moment(e.value).format("YYYY-MM-DD");
-    console.log(date);
     this.searchByDate.emit(date);
   }
+
   onFocus() {}
 
   openDialog(e): void {

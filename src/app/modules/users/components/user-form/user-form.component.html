@@ -1,17 +1,27 @@
 <mat-form-field appearance="legacy">
   <input
     matInput
-    (keyup)="onSearchNameFocus($event)"
+    (keyup)="onSearchNameFocus($event, 'name')"
     placeholder="Search by name"
   />
 </mat-form-field>
 
 <mat-form-field appearance="legacy">
-  <input matInput (focus)="onFocus()" placeholder="Search by role" />
+  <input
+    matInput
+    (focus)="onFocus()"
+    (keyup)="onSearchRoleFocus($event, 'role')"
+    placeholder="Search by role"
+  />
 </mat-form-field>
 
 <mat-form-field appearance="legacy">
-  <input matInput (focus)="onFocus()" placeholder="Search by group" />
+  <input
+    matInput
+    (focus)="onFocus()"
+    (keyup)="onSearchGroupFocus($event)"
+    placeholder="Search by group"
+  />
 </mat-form-field>
 
 <mat-form-field class="example-full-width">

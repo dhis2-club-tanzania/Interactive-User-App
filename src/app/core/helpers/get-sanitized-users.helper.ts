@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import * as _ from "lodash";
 
 export function getSanitizedUsers(users: any) {
   if (!users) {
@@ -6,23 +6,29 @@ export function getSanitizedUsers(users: any) {
   }
 
   return _.map(users, user => ({
-    id: user ? user.id : '',
+    id: user ? user.id : "",
     displayName: user.displayName,
     username: user
       ? user.userCredentials
         ? user.userCredentials.username
-        : ''
-      : '',
+        : ""
+      : "",
+    userRoles: user.userCredentials
+      ? user.userCredentials.userRoles
+        ? user.userCredentials.userRoles
+        : []
+      : [],
+    userGroups: user ? (user.userGroups ? user.userGroups : []) : [],
     lastLogin: user
       ? user.userCredentials
         ? user.userCredentials.lastLogin
-        : ''
-      : '',
+        : ""
+      : "",
     disabled: user
       ? user.userCredentials
         ? user.userCredentials.disabled
-        : ''
-      : '',
-    menu: ''
+        : ""
+      : "",
+    menu: ""
   }));
 }
