@@ -42,13 +42,22 @@ export class UserComponent implements OnInit {
   }
 
   onSearchByName(searchedName) {
-    this.userTable.onApplyFilter({ filter: "name", value: searchedName });
+    this.userTable.onApplyFilter({
+      filter: searchedName.control,
+      value: searchedName.value
+    });
   }
   onSearchByRole(searchedRole) {
-    this.userTable.onApplyFilter({ filter: "role", value: searchedRole });
+    this.userTable.onApplyFilter({
+      filter: searchedRole.control,
+      value: searchedRole.value
+    });
   }
   onSearchByGroup(searchedGroup) {
-    this.userTable.onApplyFilter({ filter: "group", value: searchedGroup });
+    this.userTable.onApplyFilter({
+      filter: searchedGroup.control,
+      value: searchedGroup.value
+    });
   }
   onSearchByDate(searchedDate) {
     this.userTable.onApplyFilter({

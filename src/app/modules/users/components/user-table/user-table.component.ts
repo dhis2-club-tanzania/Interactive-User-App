@@ -45,7 +45,6 @@ export class UserTableComponent implements OnInit {
       getSanitizedUsers(this.users)
     );
     this.dataSource.filterPredicate = (user, filter) => {
-      console.log(user, filter);
       const searchArray = filter.split(" ");
       if (searchArray[0] === "role") {
         for (const role of user.userRoles) {
@@ -59,11 +58,15 @@ export class UserTableComponent implements OnInit {
         }
         return false;
       } else if (searchArray[0] === "name") {
-        return user.username.indexOf(searchArray[1].toLocaleLowerCase()) != -1;
+        console.log(user.username);
+        return (
+          user.username
+            .toLocaleLowerCase()
+            .indexOf(searchArray[1].toLocaleLowerCase()) != -1
+        );
       }
     };
     this.dataSource.paginator = this.paginationDetails;
-    console.log("DATA::: " + JSON.stringify(this.users));
   }
 
   onApplyFilter(searchedTerm: { value: string; filter: string }) {

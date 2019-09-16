@@ -19,7 +19,7 @@
   <input
     matInput
     (focus)="onFocus()"
-    (keyup)="onSearchGroupFocus($event)"
+    (keyup)="onSearchGroupFocus($event, 'group')"
     placeholder="Search by group"
   />
 </mat-form-field>
@@ -30,7 +30,7 @@
     [matDatepickerFilter]="myFilter"
     [matDatepicker]="picker"
     placeholder="Inactivity"
-    (dateChange)="onSearchDateFocus($event)"
+    (dateChange)="onSearchDateFocus($event, 'date')"
   />
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
