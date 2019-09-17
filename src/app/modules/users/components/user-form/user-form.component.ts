@@ -19,13 +19,18 @@ export class UserFormComponent implements OnInit {
     value: string;
     control: string;
   }> = new EventEmitter();
-  // @Output() searchByGroup: EventEmitter<string> = new EventEmitter();
   @Output() searchByDate: EventEmitter<any> = new EventEmitter();
+  @Output() searchByInvitation: EventEmitter<{
+    value: boolean;
+    control: string;
+  }> = new EventEmitter();
 
   date: any;
+  Invitation: any;
   dialogData: any;
   myFilter = (d: Date): boolean => {
-    const day = d.getDay();
+    const day = d.getDay(); // @Output() searchByGroup: EventEmitter<string> = new EventEmitter();
+
     // Prevent Saturday and Sunday from being selected.
     return day !== 0 && day !== 6;
   };
@@ -48,9 +53,11 @@ export class UserFormComponent implements OnInit {
     this.searchByGroup.emit({ value: e.target.value, control: prop });
   }
 
+  onSearchInvitation(e, prop) {
+    this.searchByInvitation.emit({ value: e.value, control: prop });
+  }
   onSearchDateFocus(e) {
     const date = moment(e.value).format("YYYY-MM-DD");
-    console.log(date);
     this.searchByDate.emit(date);
   }
 

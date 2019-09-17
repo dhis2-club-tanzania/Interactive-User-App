@@ -8,7 +8,7 @@ import { Store } from "@ngrx/store";
 import { State } from "src/app/store/reducers";
 import { getUsers } from "src/app/store/selectors/users.selectors";
 
-import { getSanitizedUsers } from "src/app/core/helpers";
+import { getSanitizedUsers, stringToBoolean } from "src/app/core/helpers";
 import { MatTableDataSource } from "@angular/material";
 
 import * as _ from "lodash";
@@ -73,8 +73,10 @@ export class UserTableComponent implements OnInit {
             return true;
           }
         }
+        return false;
+      } else if (searchArray[0] === "invitation") {
+        return user.invitation === stringToBoolean(searchArray[1]);
       }
-      return false;
     };
     this.dataSource.paginator = this.paginationDetails;
   }
