@@ -131,7 +131,7 @@
     <button mat-button matStepperPrevious type="button" class="bsave">
       Back</button
     >&nbsp;&nbsp;
-    <button mat-button type="submit" class="bsave">
+    <button mat-button class="bsave" (click)="onSubmit($event)">
       Save
     </button>
   </div>

@@ -1,29 +1,29 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
-import { UserService } from "../../services/user.service";
-import * as _ from "lodash";
-import { Observable } from "rxjs";
-import { Store } from "@ngrx/store";
-import { State } from "src/app/store/reducers";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { UserService } from '../../services/user.service';
+import * as _ from 'lodash';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/store/reducers';
 import {
   getUserRoles,
   getSelectedUserRoles
-} from "src/app/store/selectors/user-roles.selectors";
+} from 'src/app/store/selectors/user-roles.selectors';
 import {
   updateUserRole,
   assignUserRole,
   assignUserGroup,
   updateUserGroup
-} from "src/app/store/actions";
+} from 'src/app/store/actions';
 import {
   getSelectedUserGroups,
   getUserGroups
-} from "src/app/store/selectors/user-groups.selectors";
+} from 'src/app/store/selectors/user-groups.selectors';
 
 @Component({
-  selector: "app-user-role-assignment",
-  templateUrl: "./user-role-assignment.component.html",
-  styleUrls: ["./user-role-assignment.component.css"]
+  selector: 'app-user-role-assignment',
+  templateUrl: './user-role-assignment.component.html',
+  styleUrls: ['./user-role-assignment.component.css']
 })
 export class UserRoleAssignmentComponent implements OnInit {
   userRoles$: Observable<any[]>;
@@ -33,6 +33,7 @@ export class UserRoleAssignmentComponent implements OnInit {
 
   searchTerm: any;
   OrgUnits: any;
+  DataView: any;
 
   constructor(
     private fb: FormBuilder,
@@ -42,7 +43,7 @@ export class UserRoleAssignmentComponent implements OnInit {
 
   userRoleForm: FormGroup;
   userRoleAssignmentData: any = {
-    formControlName: "filter"
+    formControlName: 'filter'
   };
 
   ngOnInit() {
@@ -52,7 +53,7 @@ export class UserRoleAssignmentComponent implements OnInit {
       .subscribe(
         selectedRoles =>
           (this.selectedUserRoles = _.map(selectedRoles, userRole =>
-            _.pick(userRole, ["id", "name"])
+            _.pick(userRole, ['id', 'name'])
           ))
       );
     this.userGroups$ = this.store.select(getUserGroups);
@@ -61,13 +62,13 @@ export class UserRoleAssignmentComponent implements OnInit {
       .subscribe(
         selectedGroups =>
           (this.selectedUserGroups = _.map(selectedGroups, userGroup =>
-            _.pick(userGroup, ["id", "name"])
+            _.pick(userGroup, ['id', 'name'])
           ))
       );
     this.userRoleForm = this.fb.group({});
     this.userRoleForm.addControl(
       this.userRoleAssignmentData.formControlName,
-      new FormControl("")
+      new FormControl('')
     );
   }
 
