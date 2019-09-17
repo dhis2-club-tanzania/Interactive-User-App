@@ -15,7 +15,11 @@ export class UserFormComponent implements OnInit {
     value: string;
     control: string;
   }> = new EventEmitter();
-  @Output() searchByGroup: EventEmitter<string> = new EventEmitter();
+  @Output() searchByGroup: EventEmitter<{
+    value: string;
+    control: string;
+  }> = new EventEmitter();
+  // @Output() searchByGroup: EventEmitter<string> = new EventEmitter();
   @Output() searchByDate: EventEmitter<any> = new EventEmitter();
 
   date: any;
@@ -40,8 +44,8 @@ export class UserFormComponent implements OnInit {
     this.searchByRole.emit({ value: e.target.value, control: prop });
   }
 
-  onSearchGroupFocus(e) {
-    this.searchByGroup.emit(e.target.value);
+  onSearchGroupFocus(e, prop) {
+    this.searchByGroup.emit({ value: e.target.value, control: prop });
   }
 
   onSearchDateFocus(e) {

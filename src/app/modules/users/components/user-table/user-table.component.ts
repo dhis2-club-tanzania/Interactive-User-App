@@ -58,13 +58,23 @@ export class UserTableComponent implements OnInit {
         }
         return false;
       } else if (searchArray[0] === "name") {
-        console.log(user.displayName);
         return (
           user.displayName
             .toLocaleLowerCase()
             .indexOf(searchArray[1].toLocaleLowerCase()) != -1
         );
+      } else if (searchArray[0] === "group") {
+        for (const group of user.userGroups) {
+          if (
+            group.name
+              .toLocaleLowerCase()
+              .indexOf(searchArray[1].toLocaleLowerCase()) != -1
+          ) {
+            return true;
+          }
+        }
       }
+      return false;
     };
     this.dataSource.paginator = this.paginationDetails;
   }
