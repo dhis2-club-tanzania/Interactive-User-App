@@ -1,16 +1,10 @@
-<<<<<<< HEAD
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import * as moment from 'moment';
-import { OrgUnitDialogComponent } from '../org-unit-dialog/org-unit-dialog.component';
-=======
-import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
+import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import * as moment from "moment";
 import { OrgUnitDialogComponent } from "../org-unit-dialog/org-unit-dialog.component";
->>>>>>> 7b8b4b168ae8cf632334da42301edead5a30ae90
 @Component({
-  selector: 'app-user-form',
-  templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.css']
+  selector: "app-user-form",
+  templateUrl: "./user-form.component.html",
+  styleUrls: ["./user-form.component.css"]
 })
 export class UserFormComponent implements OnInit {
   @Output() searchByName: EventEmitter<{
@@ -55,12 +49,8 @@ export class UserFormComponent implements OnInit {
   }
 
   onSearchDateFocus(e) {
-<<<<<<< HEAD
-    const date = moment(e.value).format('YYYY-MM-DD');
-    console.log(date);
-=======
     const date = moment(e.value).format("YYYY-MM-DD");
->>>>>>> 7b8b4b168ae8cf632334da42301edead5a30ae90
+    console.log(date);
     this.searchByDate.emit(date);
   }
 
@@ -69,7 +59,7 @@ export class UserFormComponent implements OnInit {
   openDialog(e): void {
     e.stopPropagation();
     const dialogRef = this.dialog.open(OrgUnitDialogComponent, {
-      width: '50%'
+      width: "50%"
     });
 
     dialogRef.afterClosed().subscribe(result => {});
