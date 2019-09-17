@@ -56,4 +56,6 @@
     <mat-option value="false">Expired Invitations</mat-option>
   </mat-select>
 </mat-form-field>
-<mat-checkbox>Self registrations</mat-checkbox>
+<mat-checkbox (change)="onSearchSelfRegistered($event, 'selfRegistered')"
+  >Self registrations</mat-checkbox
+>

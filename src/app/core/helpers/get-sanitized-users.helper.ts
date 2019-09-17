@@ -23,6 +23,11 @@ export function getSanitizedUsers(users: any) {
         ? user.userCredentials.invitation
         : false
       : false,
+    selfRegistered: user.userCredentials
+      ? user.userCredentials.selfRegistered
+        ? user.userCredentials.selfRegistered
+        : false
+      : false,
     userGroups: user ? (user.userGroups ? user.userGroups : []) : [],
     lastLogin: user
       ? user.userCredentials

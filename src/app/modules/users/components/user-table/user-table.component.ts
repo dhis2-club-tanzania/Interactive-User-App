@@ -76,6 +76,8 @@ export class UserTableComponent implements OnInit {
         return false;
       } else if (searchArray[0] === "invitation") {
         return user.invitation === stringToBoolean(searchArray[1]);
+      } else if (searchArray[0] === "selfRegistered") {
+        return user.selfRegistered === stringToBoolean(searchArray[1]);
       }
     };
     this.dataSource.paginator = this.paginationDetails;
