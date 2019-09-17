@@ -6,6 +6,8 @@
     <div class="col-md-6">
       <app-user-form
         (searchByName)="onSearchByName($event)"
+        (searchByRole)="onSearchByRole($event)"
+        (searchByGroup)="onSearchByGroup($event)"
         (searchByDate)="onSearchByDate($event)"
       ></app-user-form>
     </div>
