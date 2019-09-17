@@ -75,7 +75,11 @@ export class UserTableComponent implements OnInit {
         }
         return false;
       } else if (searchArray[0] === "invitation") {
-        return user.invitation === stringToBoolean(searchArray[1]);
+        const invitation = stringToBoolean(searchArray[1]);
+        if (!invitation) {
+          return true;
+        }
+        return user.invitation === invitation;
       } else if (searchArray[0] === "selfRegistered") {
         return user.selfRegistered === stringToBoolean(searchArray[1]);
       }

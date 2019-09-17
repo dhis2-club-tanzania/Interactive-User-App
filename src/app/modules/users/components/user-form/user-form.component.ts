@@ -59,6 +59,7 @@ export class UserFormComponent implements OnInit {
   }
 
   onSearchInvitation(e, prop) {
+    // console.log(e);
     this.searchByInvitation.emit({ value: e.value, control: prop });
   }
   onSearchSelfRegistered(e, prop) {
