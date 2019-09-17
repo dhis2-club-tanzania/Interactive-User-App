@@ -1,21 +1,21 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { UserService } from "../../services/user.service";
-import { FormGroup, FormBuilder, FormControl } from "@angular/forms";
-import * as _ from "lodash";
-import { Observable } from "rxjs";
-import { Store } from "@ngrx/store";
-import { State } from "src/app/store/reducers";
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import * as _ from 'lodash';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/store/reducers';
 import {
   updateUserDimension,
   assignUserDimension
-} from "src/app/store/actions";
-import { getUserDimensions } from "src/app/store/selectors/user-dimensions.selectors";
-import { getSelectedUserDimensions } from "src/app/store/selectors/user-dimensions.selectors";
+} from 'src/app/store/actions';
+import { getUserDimensions } from 'src/app/store/selectors/user-dimensions.selectors';
+import { getSelectedUserDimensions } from 'src/app/store/selectors/user-dimensions.selectors';
 
 @Component({
-  selector: "app-org-unit-assignment",
-  templateUrl: "./org-unit-assignment.component.html",
-  styleUrls: ["./org-unit-assignment.component.css"]
+  selector: 'app-org-unit-assignment',
+  templateUrl: './org-unit-assignment.component.html',
+  styleUrls: ['./org-unit-assignment.component.css']
 })
 export class OrgUnitAssignmentComponent implements OnInit {
   @Output() saveUser: EventEmitter<boolean> = new EventEmitter();
@@ -38,7 +38,7 @@ export class OrgUnitAssignmentComponent implements OnInit {
 
   orgUnitForm: FormGroup;
   orgUnitAssignmentData: any = {
-    formControlName: "filter"
+    formControlName: 'filter'
   };
 
   ngOnInit() {
@@ -49,14 +49,14 @@ export class OrgUnitAssignmentComponent implements OnInit {
         selectedDimensions =>
           (this.selectedUserDimensions = _.map(
             selectedDimensions,
-            userDimension => _.pick(userDimension, ["id", "name"])
+            userDimension => _.pick(userDimension, ['id', 'name'])
           ))
       );
 
     this.orgUnitForm = this.fb.group({});
     this.orgUnitForm.addControl(
       this.orgUnitAssignmentData.formControlName,
-      new FormControl("")
+      new FormControl('')
     );
   }
   onOrgUnitUpdate(e, UPDATE) {}
@@ -96,10 +96,12 @@ export class OrgUnitAssignmentComponent implements OnInit {
   }
 
   onOrganisationUnits(e, UPDATE) {
+    console.log('Orgunit updated');
     this.OrgUnits = e.items;
   }
 
   onDataViewOrganisationUnits(e, UPDATE) {
+    console.log('Data view updated');
     this.DataView = e.items;
   }
 
@@ -107,7 +109,8 @@ export class OrgUnitAssignmentComponent implements OnInit {
     this.searchTerm = this.orgUnitForm.value.filter;
   }
 
-  onSubmit() {
+  onSubmit(e) {
+    e.stopPropagation();
     this.saveUser.emit();
   }
 }

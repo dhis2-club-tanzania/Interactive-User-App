@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MustMatch } from 'match-password';
 import {
   FormBuilder,
   FormGroup,
@@ -107,7 +108,29 @@ export class BasicUserInfoComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.basicUserForm = this.fb.group({});
+    this.basicUserForm = this.fb.group(
+      {
+        // tslint:disable-next-line: quotemark
+        email: [
+          '',
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')
+        ],
+        password: [
+          '',
+          Validators.pattern(
+            '^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\\D*\\d)[A-Za-z\\d!$%@#£€*?&]{8,}$'
+          )
+        ],
+        password2: [
+          '',
+          Validators.pattern(
+            '^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\\D*\\d)[A-Za-z\\d!$%@#£€*?&]{8,}$'
+          )
+        ]
+      },
+      { validators: MustMatch('password', 'password2') }
+    );
+    // get();: { return this.basicUserForm.controls; }
     this.basicUserInfoData.formControlNames.forEach(controlName => {
       this.basicUserForm.addControl(controlName, new FormControl());
     });
