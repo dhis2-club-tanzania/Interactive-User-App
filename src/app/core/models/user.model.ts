@@ -1,3 +1,6 @@
+import { UserGroup } from 'src/app/modules/users/models/user-group.model';
+import { UserRoles } from 'src/app/modules/users/models/user-roles.model';
+
 export interface User {
   /**
    * User ID
@@ -55,6 +58,7 @@ export interface User {
     openId?: string;
     ldapId?: string;
     username?: string;
+    userRoles?: UserRoles[];
     externalAuth?: string;
   };
   interfaceLanguage?: string;
@@ -65,14 +69,7 @@ export interface User {
   whatsApp?: string;
   facebookMessenger?: string;
   twitter?: string;
-  userRoles?: {
-    id?: string;
-    name?: string;
-  };
-  userGroups?: {
-    id?: string;
-    name?: string;
-  };
+  userGroups?: UserGroup[];
   organisationUnits?: {
     id?: string;
   };

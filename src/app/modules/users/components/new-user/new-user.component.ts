@@ -14,7 +14,6 @@ import {
   createUsers
 } from 'src/app/store/actions';
 import { UserService } from '../../services/user.service';
-import { CDK_TABLE_TEMPLATE } from '@angular/cdk/table';
 
 @Component({
   selector: 'app-new-user',
