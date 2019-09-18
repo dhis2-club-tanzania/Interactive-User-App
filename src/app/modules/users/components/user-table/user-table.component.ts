@@ -8,7 +8,7 @@ import { Store } from "@ngrx/store";
 import { State } from "src/app/store/reducers";
 import { getUsers } from "src/app/store/selectors/users.selectors";
 
-import { getSanitizedUsers } from "src/app/core/helpers";
+import { getSanitizedUsers, stringToBoolean } from "src/app/core/helpers";
 import { MatTableDataSource } from "@angular/material";
 
 import * as _ from "lodash";
@@ -58,12 +58,30 @@ export class UserTableComponent implements OnInit {
         }
         return false;
       } else if (searchArray[0] === "name") {
-        console.log(user.displayName);
         return (
           user.displayName
             .toLocaleLowerCase()
             .indexOf(searchArray[1].toLocaleLowerCase()) != -1
         );
+      } else if (searchArray[0] === "group") {
+        for (const group of user.userGroups) {
+          if (
+            group.name
+              .toLocaleLowerCase()
+              .indexOf(searchArray[1].toLocaleLowerCase()) != -1
+          ) {
+            return true;
+          }
+        }
+        return false;
+      } else if (searchArray[0] === "invitation") {
+        const invitation = stringToBoolean(searchArray[1]);
+        if (!invitation) {
+          return true;
+        }
+        return user.invitation === invitation;
+      } else if (searchArray[0] === "selfRegistered") {
+        return user.selfRegistered === stringToBoolean(searchArray[1]);
       }
     };
     this.dataSource.paginator = this.paginationDetails;

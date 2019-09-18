@@ -65,4 +65,17 @@ export class UserComponent implements OnInit {
       value: searchedDate.toString()
     });
   }
+
+  onSearchByInvitation(searchedStatus) {
+    this.userTable.onApplyFilter({
+      filter: searchedStatus.control,
+      value: searchedStatus.value
+    });
+  }
+  onSearchBySelfRegistered(searchedStatus) {
+    this.userTable.onApplyFilter({
+      filter: searchedStatus.control,
+      value: searchedStatus.value
+    });
+  }
 }

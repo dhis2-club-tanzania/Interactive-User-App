@@ -47,10 +47,15 @@
 
 <mat-form-field>
   <mat-label>Invitations</mat-label>
-  <mat-select disableRipple>
-    <mat-option value="1">No Value</mat-option>
-    <mat-option value="2">All Invitations</mat-option>
-    <mat-option value="3">Expired Invitations</mat-option>
+  <mat-select
+    disableRipple
+    (selectionChange)="onSearchInvitation($event, 'invitation')"
+  >
+    <mat-option>No Value</mat-option>
+    <mat-option value="true">All Invitations</mat-option>
+    <mat-option value="false">Expired Invitations</mat-option>
   </mat-select>
 </mat-form-field>
-<mat-checkbox>Self registrations</mat-checkbox>
+<mat-checkbox (change)="onSearchSelfRegistered($event, 'selfRegistered')"
+  >Self registrations</mat-checkbox
+>
