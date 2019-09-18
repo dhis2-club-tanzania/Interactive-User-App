@@ -96,12 +96,12 @@ export class OrgUnitAssignmentComponent implements OnInit {
   }
 
   onOrganisationUnits(e, UPDATE) {
-    console.log('Orgunit updated');
+    // console.log('Orgunit updated');
     this.OrgUnits = e.items;
   }
 
   onDataViewOrganisationUnits(e, UPDATE) {
-    console.log('Data view updated');
+    // console.log('Data view updated');
     this.DataView = e.items;
   }
 

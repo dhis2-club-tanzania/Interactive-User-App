@@ -1,9 +1,11 @@
 <h3>Edit User</h3>
-
 <mat-horizontal-stepper [linear]="true" #stepper>
-  <mat-step [stepControl]="step1.formStep1">
+  <mat-step [stepControl]="">
     <ng-template matStepLabel>Basic User Information</ng-template>
-    <app-basic-user-info #step1></app-basic-user-info>
+    <app-basic-user-info
+      [basicUserInfo]="basicInfo"
+      #step1
+    ></app-basic-user-info>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>User role assignment</ng-template>

@@ -62,7 +62,7 @@ export class NewUserComponent implements OnInit {
         ),
         username: this.basicUserInfoComponent.basicUserForm.value.username,
         password: this.basicUserInfoComponent.basicUserForm.value.password,
-        ldapId: this.basicUserInfoComponent.basicUserForm.value.ldapid,
+        ldapId: this.basicUserInfoComponent.basicUserForm.value.ldapId,
         openId: this.basicUserInfoComponent.basicUserForm.value.openId
       },
       attributeValues: [],
@@ -70,7 +70,7 @@ export class NewUserComponent implements OnInit {
         'password2',
         'username',
         'password',
-        'ldapid',
+        'ldapId',
         'openId'
       ]),
 
@@ -91,5 +91,6 @@ export class NewUserComponent implements OnInit {
     };
     this.store.dispatch(createUsers({ user: user }));
     this.router.navigate(['/user']);
+    console.log(user);
   }
 }

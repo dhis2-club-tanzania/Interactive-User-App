@@ -32,20 +32,51 @@ export interface User {
   /**
    * Organisation Units the user is assigned to view reports and visualizations
    */
-  dataViewOrganisationUnits: any[];
+  // dataViewOrganisationUnits: any[];
 
   /**
    * Organisation Units user is assigned for data entry
    */
-  organisationUnits: any[];
+  // organisationUnits: any[];
 
   /**
    * User credential information
    */
-  userCredentials: any;
+  // userCredentials: any;
 
   /**
    * User authorities
    */
   authorities: string[];
+
+  surname?: string;
+  firstName?: string;
+  userCredentials?: {
+    openId?: string;
+    ldapId?: string;
+    username?: string;
+    externalAuth?: string;
+  };
+  interfaceLanguage?: string;
+  databaseLanguage?: string;
+  skype?: string;
+  telegram?: string;
+  phoneNumber?: string;
+  whatsApp?: string;
+  facebookMessenger?: string;
+  twitter?: string;
+  userRoles?: {
+    id?: string;
+    name?: string;
+  };
+  userGroups?: {
+    id?: string;
+    name?: string;
+  };
+  organisationUnits?: {
+    id?: string;
+  };
+  dataViewOrganisationUnits?: {
+    id?: string;
+  };
 }

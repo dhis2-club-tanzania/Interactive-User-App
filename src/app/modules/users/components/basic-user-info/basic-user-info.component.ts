@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MustMatch } from 'match-password';
 import {
   FormBuilder,
@@ -6,13 +6,15 @@ import {
   FormControl,
   Validators
 } from '@angular/forms';
-
+import { BasicUserInfo } from '../../models/basic-user-info.model';
 @Component({
   selector: 'app-basic-user-info',
   templateUrl: './basic-user-info.component.html',
   styleUrls: ['./basic-user-info.component.css']
 })
 export class BasicUserInfoComponent implements OnInit {
+  @Input() basicUserInfo: BasicUserInfo = null;
+
   languages: string[] = [
     'Arabic',
     'Arabic(Egypt)',
@@ -108,6 +110,42 @@ export class BasicUserInfoComponent implements OnInit {
   };
 
   ngOnInit() {
+    if (this.basicUserInfo) {
+      this.getEditingForm();
+    } else {
+      this.getNewForm();
+    }
+  }
+
+  getEditingForm() {
+    console.log(this.basicUserInfo.whatsApp);
+    this.basicUserForm = new FormGroup({
+      email: new FormControl(this.basicUserInfo.email, Validators.required),
+      surname: new FormControl(this.basicUserInfo.surname, Validators.required),
+      firstName: new FormControl(
+        this.basicUserInfo.firstName,
+        Validators.required
+      ),
+      externalAuth: new FormControl(
+        this.basicUserInfo.userCredentials.externalAuth
+      ),
+      username: new FormControl(this.basicUserInfo.userCredentials.username),
+      openId: new FormControl(this.basicUserInfo.userCredentials.openId),
+      databaseLanguage: new FormControl(this.basicUserInfo.databaseLanguage),
+      interfaceLanguage: new FormControl(this.basicUserInfo.interfaceLanguage),
+      ldapIdentifier: new FormControl(
+        this.basicUserInfo.userCredentials.ldapId
+      ),
+      skype: new FormControl(this.basicUserInfo.skype),
+      telegram: new FormControl(this.basicUserInfo.telegram),
+      phoneNumber: new FormControl(this.basicUserInfo.phoneNumber),
+      whatsapp: new FormControl(this.basicUserInfo.whatsApp),
+      facebook: new FormControl(this.basicUserInfo.facebookMessenger),
+      twitter: new FormControl(this.basicUserInfo.twitter)
+    });
+  }
+
+  getNewForm() {
     this.basicUserForm = this.fb.group(
       {
         // tslint:disable-next-line: quotemark

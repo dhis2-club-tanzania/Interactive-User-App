@@ -30,3 +30,11 @@ export const getUsersList = createSelector(
     return users;
   }
 );
+
+export const getSelectedUser = id =>
+  createSelector(
+    getUsersList,
+    (users: User[]) => {
+      return _.find(users, user => user.id === id);
+    }
+  );
