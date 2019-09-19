@@ -1,6 +1,10 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import * as moment from 'moment';
 import { OrgUnitDialogComponent } from '../org-unit-dialog/org-unit-dialog.component';
+<<<<<<< HEAD
+=======
+import { MatDialog } from '@angular/material';
+>>>>>>> fb790d212a3afb379ea21a0c816969883ad869ba
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
@@ -19,7 +23,10 @@ export class UserFormComponent implements OnInit {
     value: string;
     control: string;
   }> = new EventEmitter();
-  @Output() searchByDate: EventEmitter<any> = new EventEmitter();
+  @Output() searchByDate: EventEmitter<{
+    value: string;
+    control: string;
+  }> = new EventEmitter();
   @Output() searchByInvitation: EventEmitter<{
     value: boolean;
     control: string;
@@ -29,20 +36,17 @@ export class UserFormComponent implements OnInit {
     control: string;
   }> = new EventEmitter();
 
-  date: any;
   selfRegistered: any;
   Invitation: any;
-  dialogData: any;
+  dialogData;
   myFilter = (d: Date): boolean => {
     const day = d.getDay();
 
     // Prevent Saturday and Sunday from being selected.
     return day !== 0 && day !== 6;
   };
-  dialog: any;
-  userService: any;
 
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit() {}
 
@@ -59,16 +63,21 @@ export class UserFormComponent implements OnInit {
   }
 
   onSearchInvitation(e, prop) {
-    // console.log(e);
     this.searchByInvitation.emit({ value: e.value, control: prop });
   }
   onSearchSelfRegistered(e, prop) {
     this.searchBySelfRegistered.emit({ value: e.checked, control: prop });
   }
+<<<<<<< HEAD
   onSearchDateFocus(e) {
     const date = moment(e.value).format('YYYY-MM-DD');
     console.log(date);
     this.searchByDate.emit(date);
+=======
+  onSearchDateFocus(e, prop) {
+    const date = moment(e.value).format('YYYY-MM-DD');
+    this.searchByDate.emit({ value: date, control: prop });
+>>>>>>> fb790d212a3afb379ea21a0c816969883ad869ba
   }
 
   onFocus() {}
@@ -79,6 +88,9 @@ export class UserFormComponent implements OnInit {
       width: '50%'
     });
 
-    dialogRef.afterClosed().subscribe(result => {});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.dialogData = result;
+    });
   }
 }

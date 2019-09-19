@@ -63,6 +63,8 @@ export class UserTableComponent implements OnInit {
             .toLocaleLowerCase()
             .indexOf(searchArray[1].toLocaleLowerCase()) != -1
         );
+      } else if (searchArray[0] === "date") {
+        return user.lastLogin.indexOf(searchArray[1]) != -1;
       } else if (searchArray[0] === "group") {
         for (const group of user.userGroups) {
           if (
@@ -80,6 +82,12 @@ export class UserTableComponent implements OnInit {
           return true;
         }
         return user.invitation === invitation;
+      } else if (searchArray[0] === "orgUnit") {
+        const orgUnit = stringToBoolean(searchArray[1]);
+        if (!orgUnit) {
+          return true;
+        }
+        return user.orgUnit === orgUnit;
       } else if (searchArray[0] === "selfRegistered") {
         return user.selfRegistered === stringToBoolean(searchArray[1]);
       }

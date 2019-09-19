@@ -141,7 +141,9 @@ export class BasicUserInfoComponent implements OnInit {
       phoneNumber: new FormControl(this.basicUserInfo.phoneNumber),
       whatsapp: new FormControl(this.basicUserInfo.whatsApp),
       facebook: new FormControl(this.basicUserInfo.facebookMessenger),
-      twitter: new FormControl(this.basicUserInfo.twitter)
+      twitter: new FormControl(this.basicUserInfo.twitter),
+      password: new FormControl(''),
+      password2: new FormControl('')
     });
   }
 

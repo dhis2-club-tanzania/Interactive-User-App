@@ -10,12 +10,13 @@
   >
   </ngx-dhis2-org-unit-filter>
 </div>
-<div mat-dialog-actions>
+<mat-dialog-actions>
   <button
     mat-raised-button
-    [mat-dialog-close]="DialogData"
+    [mat-dialog-close]="'clicked'"
     (click)="onOrgUnitDialogClose($event, 'CLOSE')"
+    cdkFocusInitial
   >
     Save
   </button>
-</div>
+</mat-dialog-actions>
