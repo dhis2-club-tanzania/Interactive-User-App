@@ -1,21 +1,21 @@
-import { createReducer, on } from "@ngrx/store";
+import { createReducer, on } from '@ngrx/store';
 import {
   initialUserRoleState,
   UserRolesState
-} from "../states/user-roles.states";
+} from '../states/user-roles.states';
 import {
   loadUserRoles,
   loadUserRolesSuccess,
   loadUserRolesFail,
   updateUserRole,
   assignUserRole
-} from "../actions";
+} from '../actions';
 import {
   loadingBaseState,
   loadedBaseState,
   errorBaseState
-} from "../states/base.state";
-import { adapter } from "../states/users.state";
+} from '../states/base.state';
+import { adapter } from '../states/users.state';
 
 export const reducer = createReducer(
   initialUserRoleState,
