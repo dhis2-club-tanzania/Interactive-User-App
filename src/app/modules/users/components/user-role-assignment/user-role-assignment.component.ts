@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import * as _ from 'lodash';
@@ -19,6 +19,8 @@ import {
   getSelectedUserGroups,
   getUserGroups
 } from 'src/app/store/selectors/user-groups.selectors';
+import { UserRoles } from '../../models/user-roles.model';
+import { UserGroup } from '../../models/user-group.model';
 
 @Component({
   selector: 'app-user-role-assignment',
@@ -26,6 +28,9 @@ import {
   styleUrls: ['./user-role-assignment.component.css']
 })
 export class UserRoleAssignmentComponent implements OnInit {
+  @Input() userRoles: UserRoles[];
+  @Input() userGroups: UserGroup[];
+
   userRoles$: Observable<any[]>;
   selectedUserRoles: any[];
   userGroups$: Observable<any[]>;
@@ -47,6 +52,7 @@ export class UserRoleAssignmentComponent implements OnInit {
   };
 
   ngOnInit() {
+    console.log('USER GROUPS', this.userGroups);
     this.userRoles$ = this.store.select(getUserRoles);
     this.store
       .select(getSelectedUserRoles)
@@ -65,6 +71,9 @@ export class UserRoleAssignmentComponent implements OnInit {
             _.pick(userGroup, ['id', 'name'])
           ))
       );
+    if (this.userRoles) {
+      this.updateUserRole(this.userRoles);
+    }
     this.userRoleForm = this.fb.group({});
     this.userRoleForm.addControl(
       this.userRoleAssignmentData.formControlName,
@@ -127,6 +136,19 @@ export class UserRoleAssignmentComponent implements OnInit {
         { id: role.id, changes: { ...role, selected: selectAll } }
       )
     );
+    this.store.dispatch(
+      assignUserRole({
+        userRole: returnedRoles
+      })
+    );
+  }
+
+  updateUserRole(roles: UserRoles[]) {
+    const returnedRoles = roles.map(role =>
+      Object.assign({}, { id: role.id, changes: role })
+    );
+    console.log('USER ROLES', returnedRoles);
+
     this.store.dispatch(
       assignUserRole({
         userRole: returnedRoles
