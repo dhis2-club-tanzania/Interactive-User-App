@@ -13,7 +13,8 @@
 <div mat-dialog-actions>
   <button
     mat-raised-button
-    [mat-dialog-close]="DialogData"
+    [mat-dialog-close]="dialogData"
+    cdkFocusInitial
     (click)="onOrgUnitDialogClose($event, 'CLOSE')"
   >
     Save
