@@ -25,6 +25,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from 'src/app/store/reducers';
+import { FormsModule } from '@angular/forms';
 
 describe('UserComponent', () => {
   let component: UserComponent;
@@ -33,6 +34,7 @@ describe('UserComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        FormsModule,
         MatTableModule,
         MatMenuModule,
         MatIconModule,
