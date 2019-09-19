@@ -52,7 +52,6 @@ export class UserRoleAssignmentComponent implements OnInit {
   };
 
   ngOnInit() {
-    console.log('USER GROUPS', this.userGroups);
     this.userRoles$ = this.store.select(getUserRoles);
     this.store
       .select(getSelectedUserRoles)
@@ -71,14 +70,17 @@ export class UserRoleAssignmentComponent implements OnInit {
             _.pick(userGroup, ['id', 'name'])
           ))
       );
-    if (this.userRoles) {
-      this.updateUserRole(this.userRoles);
-    }
     this.userRoleForm = this.fb.group({});
     this.userRoleForm.addControl(
       this.userRoleAssignmentData.formControlName,
       new FormControl('')
     );
+    if (this.userRoles) {
+      this.updateUserRole(this.userRoles);
+    }
+    if (this.userGroups) {
+      this.updateUserGroup(this.userGroups);
+    }
   }
 
   onUpdateUserGroupList(e, group: any) {
@@ -152,6 +154,19 @@ export class UserRoleAssignmentComponent implements OnInit {
     this.store.dispatch(
       assignUserRole({
         userRole: returnedRoles
+      })
+    );
+  }
+
+  updateUserGroup(groups: UserGroup[]) {
+    const returnedGroups = groups.map(group =>
+      Object.assign({}, { id: group.id, changes: group })
+    );
+    console.log('USER GROUPS', returnedGroups);
+
+    this.store.dispatch(
+      assignUserGroup({
+        userGroup: returnedGroups
       })
     );
   }

@@ -1,10 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import * as moment from 'moment';
 import { OrgUnitDialogComponent } from '../org-unit-dialog/org-unit-dialog.component';
-<<<<<<< HEAD
-=======
 import { MatDialog } from '@angular/material';
->>>>>>> fb790d212a3afb379ea21a0c816969883ad869ba
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
@@ -68,16 +65,9 @@ export class UserFormComponent implements OnInit {
   onSearchSelfRegistered(e, prop) {
     this.searchBySelfRegistered.emit({ value: e.checked, control: prop });
   }
-<<<<<<< HEAD
-  onSearchDateFocus(e) {
-    const date = moment(e.value).format('YYYY-MM-DD');
-    console.log(date);
-    this.searchByDate.emit(date);
-=======
   onSearchDateFocus(e, prop) {
     const date = moment(e.value).format('YYYY-MM-DD');
     this.searchByDate.emit({ value: date, control: prop });
->>>>>>> fb790d212a3afb379ea21a0c816969883ad869ba
   }
 
   onFocus() {}
