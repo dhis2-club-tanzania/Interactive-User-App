@@ -61,8 +61,8 @@ export class UserComponent implements OnInit {
   }
   onSearchByDate(searchedDate) {
     this.userTable.onApplyFilter({
-      filter: "date",
-      value: searchedDate.toString()
+      filter: searchedDate.control,
+      value: searchedDate.value
     });
   }
 

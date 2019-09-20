@@ -20,6 +20,7 @@ export class UserFormComponent implements OnInit {
     value: string;
     control: string;
   }> = new EventEmitter();
+  // @Output() searchByDate: EventEmitter<any> = new EventEmitter();
   @Output() searchByDate: EventEmitter<{
     value: string;
     control: string;
@@ -36,6 +37,7 @@ export class UserFormComponent implements OnInit {
   selfRegistered: any;
   Invitation: any;
   dialogData;
+  date: any;
   myFilter = (d: Date): boolean => {
     const day = d.getDay();
 
@@ -66,7 +68,7 @@ export class UserFormComponent implements OnInit {
     this.searchBySelfRegistered.emit({ value: e.checked, control: prop });
   }
   onSearchDateFocus(e, prop) {
-    const date = moment(e.value).format("YYYY-MM-DD");
+    const date = e.value.toDateString();
     this.searchByDate.emit({ value: date, control: prop });
   }
 

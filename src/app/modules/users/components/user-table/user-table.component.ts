@@ -64,8 +64,13 @@ export class UserTableComponent implements OnInit {
             .indexOf(searchArray[1].toLocaleLowerCase()) != -1
         );
       } else if (searchArray[0] === "date") {
-        console.log(searchArray[1]);
-        return user.lastLogin.indexOf(searchArray[1]) != -1;
+        if (user.lastLogin) {
+          const lastLogin = new Date(user.lastLogin);
+          const searchedDate = new Date(searchArray[1]);
+          return lastLogin > searchedDate;
+        } else {
+          return false;
+        }
       } else if (searchArray[0] === "group") {
         for (const group of user.userGroups) {
           if (
