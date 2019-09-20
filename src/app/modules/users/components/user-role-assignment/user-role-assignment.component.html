@@ -7,7 +7,7 @@
       matInput
       placeholder="Filter"
       formControlName="filter"
-      (keyup)="onSearch()"
+      (keyup)="onSearchRole($event)"
     />
   </mat-form-field>
 
@@ -25,7 +25,7 @@
                   let role of userRoles$
                     | async
                     | selectFilter: false
-                    | filterByName: searchTerm
+                    | filterByName: searchedRole
                 "
               >
                 <td (click)="onUpdateUserRoleList($event, role)">
@@ -84,12 +84,7 @@
   </div>
 
   <mat-form-field style="width: 98%">
-    <input
-      matInput
-      placeholder="Filter"
-      formControlName="filter"
-      (keyup)="onSearch()"
-    />
+    <input matInput placeholder="Filter" (keyup)="onSearchGroup($event)" />
   </mat-form-field>
 
   <br /><br />
@@ -108,7 +103,7 @@
                   let group of userGroups$
                     | async
                     | selectFilter: false
-                    | filterByName: searchTerm
+                    | filterByName: searchedGroup
                 "
               >
                 <td (click)="onUpdateUserGroupList($event, group)">
