@@ -78,4 +78,11 @@ export class UserComponent implements OnInit {
       value: searchedStatus.value
     });
   }
+
+  onSearchByOrgUnit(searchedOrgunit) {
+    this.userTable.onApplyFilter({
+      filter: searchedOrgunit.control,
+      value: searchedOrgunit.value
+    });
+  }
 }

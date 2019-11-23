@@ -8,6 +8,11 @@ export function getSanitizedUsers(users: any) {
   return _.map(users, user => ({
     id: user ? user.id : "",
     displayName: user.displayName,
+    organisationUnits: user
+      ? user.organisationUnits
+        ? user.organisationUnits
+        : []
+      : [],
     username: user
       ? user.userCredentials
         ? user.userCredentials.username

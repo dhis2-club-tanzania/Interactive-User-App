@@ -1,13 +1,13 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material';
+import { Component, OnInit, Inject } from "@angular/core";
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from "@angular/material";
 
 export class DialogData {
   data: string;
 }
 @Component({
-  selector: 'app-org-unit-dialog',
-  templateUrl: './org-unit-dialog.component.html',
-  styleUrls: ['./org-unit-dialog.component.css']
+  selector: "app-org-unit-dialog",
+  templateUrl: "./org-unit-dialog.component.html",
+  styleUrls: ["./org-unit-dialog.component.css"]
 })
 export class OrgUnitDialogComponent implements OnInit {
   selectedOrgUnitItems: any[];
@@ -21,18 +21,16 @@ export class OrgUnitDialogComponent implements OnInit {
   dialogData: any;
 
   constructor(
-    private dialogRef: MatDialogRef<OrgUnitDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    private dialogRef: MatDialogRef<OrgUnitDialogComponent> // @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
   ngOnInit() {}
 
   onOrgUnitDialogClose(e, UPDATE) {
-    this.dialogRef.close();
+    this.dialogRef.close(this.dialogData);
   }
 
   onOrgUnitDialogUpdate(e, UPDATE) {
-    this.dialogData = e.items[0].name;
-    console.log(this.dialogData);
+    this.dialogData = e.items[0];
   }
 }

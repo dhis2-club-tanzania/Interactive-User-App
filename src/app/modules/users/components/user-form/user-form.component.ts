@@ -33,10 +33,14 @@ export class UserFormComponent implements OnInit {
     value: boolean;
     control: string;
   }> = new EventEmitter();
+  @Output() searchByOrgUnit: EventEmitter<{
+    value: string;
+    control: string;
+  }> = new EventEmitter();
 
   selfRegistered: any;
   Invitation: any;
-  dialogData;
+  orgUnitData: any;
   date: any;
   myFilter = (d: Date): boolean => {
     const day = d.getDay();
@@ -67,6 +71,11 @@ export class UserFormComponent implements OnInit {
   onSearchSelfRegistered(e, prop) {
     this.searchBySelfRegistered.emit({ value: e.checked, control: prop });
   }
+
+  // onSearchOrgUnit(e, prop) {
+  //   console.log(this.orgUnitData);
+  // }
+
   onSearchDateFocus(e, prop) {
     const date = e.value.toDateString();
     this.searchByDate.emit({ value: date, control: prop });
@@ -81,8 +90,10 @@ export class UserFormComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
-      this.dialogData = result;
+      if (result) {
+        this.orgUnitData = result;
+        this.searchByOrgUnit.emit({ value: result.id, control: "orgUnit" });
+      }
     });
   }
 }

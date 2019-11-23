@@ -40,7 +40,7 @@
 <mat-form-field appearance="legacy">
   <input
     matInput
-    [(ngModel)]="dialogData"
+    [ngModel]="orgUnitData | orgunit"
     (click)="openDialog($event)"
     placeholder="Organisation Unit"
   />

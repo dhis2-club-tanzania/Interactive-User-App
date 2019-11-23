@@ -35,6 +35,7 @@ import { SelectFilterPipe } from "./pipes/select-filter.pipe";
 import { FilterPipe } from "./pipes/user-role-filter.pipe";
 import { MatProgressSpinnerModule } from "@angular/material";
 import { SearchByNamePipe } from "./pipes/search-by-name.pipe";
+import { OrgunitPipe } from "./pipes/orgunit-name.pipe";
 import { OrgUnitDialogComponent } from "./components/org-unit-dialog/org-unit-dialog.component";
 
 @NgModule({
@@ -51,6 +52,7 @@ import { OrgUnitDialogComponent } from "./components/org-unit-dialog/org-unit-di
     SelectFilterPipe,
     FilterPipe,
     SearchByNamePipe,
+    OrgunitPipe,
     OrgUnitDialogComponent
   ],
   imports: [

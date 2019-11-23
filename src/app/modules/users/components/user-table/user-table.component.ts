@@ -89,11 +89,11 @@ export class UserTableComponent implements OnInit {
         }
         return user.invitation === invitation;
       } else if (searchArray[0] === "orgUnit") {
-        const orgUnit = stringToBoolean(searchArray[1]);
-        if (!orgUnit) {
-          return true;
-        }
-        return user.orgUnit === orgUnit;
+        const org = _.find(
+          user.organisationUnits,
+          organitationUnit => organitationUnit.id === searchArray[1]
+        );
+        return org ? true : false;
       } else if (searchArray[0] === "selfRegistered") {
         return user.selfRegistered === stringToBoolean(searchArray[1]);
       }
